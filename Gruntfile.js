@@ -232,7 +232,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('js', ['combineKOTemplates', 'browserify', 'exorcise']);
   grunt.registerTask('css', ['less', 'postcss']);
-  grunt.registerTask('server', ['express', 'watch', 'express-keepalive']);
+  //grunt.registerTask('server', ['express', 'watch', 'express-keepalive']);
   grunt.registerTask('build', ['bowercopy', 'copy', 'jshint', 'js', 'css']);
   grunt.registerTask('default', ['build', 'server']);
   grunt.registerTask('test', ['jasmine_node']);

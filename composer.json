@@ -1,0 +1,15 @@
+{
+  "name": "iterios/mosaico",
+  "version": "1.0",
+  "description": "The email template editor for Iterios projects",
+  "type": "library",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Oleksandr Muzychenko",
+      "email": "almuz@iterios.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {}
+}
