@@ -11,5 +11,12 @@
     }
   ],
   "minimum-stability": "dev",
-  "require": {}
+  "require": {},
+  "scripts": {
+    "post-install-cmd": [
+      "npm install",
+      "npm install grunt-cli",
+      "node_modules/grunt-cli/bin/grunt"
+    ]
+  }
 }
