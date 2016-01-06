@@ -1,6 +1,5 @@
 {
   "name": "iterios/mosaico",
-  "version": "0.0.1",
   "description": "The email template editor for Iterios projects",
   "type": "library",
   "license": "proprietary",
@@ -13,9 +12,12 @@
   "minimum-stability": "dev",
   "require": {},
   "scripts": {
-    "post-install-cmd": [
+    "post-package-install": [
       "npm install",
       "npm install grunt-cli",
+      "node_modules/grunt-cli/bin/grunt"
+    ],
+    "post-package-update": [
       "node_modules/grunt-cli/bin/grunt"
     ]
   }
