@@ -1,9 +1,7 @@
 "use strict";
 var path = require('path');
-var fs = require('fs');
-var destination = path.normalize(path.join(fs.realpathSync('.'), 'editor'));
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     grunt.loadTasks('tasks');
 
@@ -160,11 +158,6 @@ module.exports = function (grunt) {
                 cwd: 'res',
                 src: '**',
                 dest: 'dist/'
-            },
-            pub: {
-                expand: true,
-                src: ['dist/**', 'build/**', 'templates/**'],
-                dest: destination
             }
         },
 
@@ -240,7 +233,7 @@ module.exports = function (grunt) {
     grunt.registerTask('js', ['combineKOTemplates', 'browserify', 'exorcise']);
     grunt.registerTask('css', ['less', 'postcss']);
     //grunt.registerTask('server', ['express', 'watch', 'express-keepalive']);
-    grunt.registerTask('build', ['bowercopy', 'copy:res', 'jshint', 'js', 'css']);
-    grunt.registerTask('default', ['build', 'copy:pub']);
+    grunt.registerTask('build', ['bowercopy', 'copy', 'jshint', 'js', 'css']);
+    grunt.registerTask('default', ['build']);
     grunt.registerTask('test', ['jasmine_node']);
 };
