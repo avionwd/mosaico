@@ -12,13 +12,13 @@
   "minimum-stability": "dev",
   "require": {},
   "scripts": {
-    "post-package-install": [
+    "post-install-cmd": [
       "cp -f ./ita/Gruntfile.js ./Gruntfile.js",
       "npm install",
       "npm install grunt-cli",
       "node_modules/grunt-cli/bin/grunt"
     ],
-    "post-package-update": [
+    "post-update-cmd": [
       "node_modules/grunt-cli/bin/grunt"
     ]
   }
