@@ -13,7 +13,7 @@
   "require": {},
   "scripts": {
     "post-install-cmd": [
-      "cp -f ./ita/Gruntfile.js ./Gruntfile.js",
+      "cp -rf ./ita/* ./",
       "npm install",
       "npm install grunt-cli",
       "node_modules/grunt-cli/bin/grunt"
