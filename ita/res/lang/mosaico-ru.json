@@ -127,7 +127,7 @@
   "External Background": "Внешний фон",
   "Text Color": "Цвет текста",
   "Text Size": "Размер текста",
-  "PreHeader Text": "Цвет заголовка страницы",
+  "PreHeader Text": "Текст заголовка страницы",
   "Left Image": "Изображение слева",
   "Left Text": "Текст слева",
   "Left Button": "Кнопка слева",
@@ -182,5 +182,14 @@
   "None": "Нет",
   "Preheader block is the first one on the top of the page. It contains web version link and optionally unsubscribe link or a preheader text that will be shown as a preview on some email clients": "Блок заголовка страницы является первым в верхней части страницы. Он содержит ссылку на веб-версию письма, возможно, ссылку Отписаться от подписки или текст, который будет отображаться в качестве предварительного просмотра в некоторых почтовых клиентах",
   "This text will be shown on some email clients as a preview of the email contents": "Этот текст будет отображаться на некоторых почтовых клиентах, как предварительный просмотр содержимого электронной почты",
-  "Some Email Clients will show this text if automatical download of images is disabled": "Некоторые почтовые клиенты будут показывать этот текст, если автоматическая загрузка изображений отключена"
+  "Some Email Clients will show this text if automatical download of images is disabled": "Некоторые почтовые клиенты будут показывать этот текст, если автоматическая загрузка изображений отключена",
+  "Company Web Site Text": "Название сайта компании",
+  "Company Phone Text": "Телефон компании",
+  "Company Emergency Phone Text": "Телефон экстренной связи:",
+  "Footer Block": "Блок Подвала страницы",
+  "linksColor": "Цвет ссылки",
+  "Site text": "Сайт",
+  "Phone Text": "Телефон",
+  "Vkontakte": "Вконтакте",
+  "Odnoklassniki": "Одноклассники"
 }
