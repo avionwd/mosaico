@@ -17,6 +17,8 @@
         max: 20;
         help: Attention - this property is not supported on all email clients (i.e. Outlook)
       }
+      align { label: Align; widget: select; options: Left|Center|Right }
+
       face { label: Font; widget: select; options: Arial, Helvetica, sans-serif=Arial|Arial Black, Arial Black, Gadget, sans-serif=Arial Black|Comic Sans MS, Comic Sans MS5, cursive=Comic Sans|Courier New, Courier New, monospace=Courier|Georgia, serif=Georgia|Impact, sans-serif=Impact|Lucida Console, Monaco, monospace=Lucida Console|Lucida Sans Unicode, Lucida Grande, sans-serif=Lucida Sans Unicode|Times New Roman, Times, serif=Times New Roman|Verdana, Geneva, sans-serif=Verdana}
       decoration { label: Decoration; widget: select; options: none=None|underline=Underline }
       linksColor { label: Link Color; extend: color }
@@ -84,8 +86,8 @@
       /* buttons */
       buttonStyle color { label: Text Color; extend: color }
       buttonStyle size { label: Text Size; extend: size }
-      buttonStyle { label: Button; properties: face color size buttonColor radius }
-      buttonStyle:preview { -ko-bind-text: @['Button']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; -ko-background-color: @buttonColor; padding-left: 5px; -ko-border-radius: @[radius]px; }
+      buttonStyle { label: Button; properties: face color size buttonColor radius align }
+      buttonStyle:preview { -ko-bind-text: @['Button']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; -ko-background-color: @buttonColor; padding-left: 5px; -ko-border-radius: @[radius]px; -ko-text-align: @align}
 
       /* contents */
       preheaderText {label: PreHeader Text; extend:text; help: This text will be shown on some email clients as a preview of the email contents;}
@@ -95,6 +97,12 @@
       middleImage { label: Central Image; extend: image }
       middleLongText { label: Central Text; extend: text }
       middleButtonLink { label: Central Button; extend: buttonLink }
+      middleLeftImage { label: Central Left Image; extend: image }
+      middleLeftLongText { label: Central Left Text; extend: text }
+      middleLeftButtonLink { label: Central Left Button; extend: buttonLink }
+      middleRightImage { label: Central Right Image; extend: image }
+      middleRightLongText { label: Central Right Text; extend: text }
+      middleRightButtonLink { label: Central Right Button; extend: buttonLink }
       rightImage { label: Right Image; extend: image }
       rightLongText { label: Right Text; extend: text }
       rightButtonLink { label: Right Button; extend: buttonLink }
@@ -112,6 +120,8 @@
 
       contentTheme { label: Main Style; }
       contentTheme:preview { -ko-background-color: @[backgroundColor] }
+      titleTheme { label: Title Style; }
+      titleTheme:preview { -ko-background-color: @[backgroundColor] }
       frameTheme { label: Frame Style; }
       frameTheme:preview { -ko-background-color: @[backgroundColor] }
       template preheaderText { label: Preheader; }
@@ -179,7 +189,7 @@
       sideArticleBlock imageWidth { label: Image Size; widget: select; options: 120=Small|166=Medium|258=Big; }
       sideArticleBlock { label: Image+Text Block; properties: backgroundColor titleVisible=true buttonVisible=true imageWidth=166 imagePos=left titleTextStyle longTextStyle buttonStyle  image  longText buttonLink; variant:imagePos; theme: contentTheme }
 
-      textBlock { label: Text Block; properties: backgroundColor longTextStyle longText; theme: contentTheme}
+      textBlock { label: Text Block; properties: backgroundColor longTextStyle longText buttonVisible=true buttonStyle buttonLink; theme: contentTheme}
 
       singleArticleBlock { label: Image/Text Block; properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle  image  longText buttonLink;theme: contentTheme}
 
@@ -189,12 +199,52 @@
         theme: contentTheme
       }
 
-      tripleArticleBlock { label: 3 Columns Block; properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle  leftImage  leftLongText leftButtonLink middleImage  middleLongText middleButtonLink rightImage  rightLongText rightButtonLink; theme: contentTheme}
+      tripleArticleBlock {
+          label: 3 Columns Block;
+          properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle
+          leftImage  leftLongText leftButtonLink
+          middleImage  middleLongText middleButtonLink
+          rightImage  rightLongText rightButtonLink;
+          theme: contentTheme}
+
+      tripleArticleBlock_1_2 {
+          label: 1 + 2 Columns Block;
+          properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle
+          leftImage  leftLongText leftButtonLink
+          middleImage  middleLongText middleButtonLink
+          rightImage  rightLongText rightButtonLink;
+          theme: contentTheme}
+
+      tripleArticleBlock_2_1 {
+          label: 2 + 1 Columns Block;
+          properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle
+          leftImage  leftLongText leftButtonLink
+          middleImage  middleLongText middleButtonLink
+          rightImage  rightLongText rightButtonLink;
+          theme: contentTheme}
+
+      tripleArticleBlock_1_1_1 {
+          label: 1 + 1 + 1 Columns Block;
+          properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle
+          leftImage  leftLongText leftButtonLink
+          middleImage  middleLongText middleButtonLink
+          rightImage  rightLongText rightButtonLink;
+          theme: contentTheme}
+
+      quadArticleBlock {
+          label: 4 Columns Block;
+          properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle
+          leftImage  leftLongText leftButtonLink
+          middleLeftImage  middleLeftLongText middleLeftButtonLink
+          middleRightImage  middleRightLongText middleRightButtonLink
+          rightImage  rightLongText rightButtonLink;
+          theme: contentTheme
+      }
 
       logoBlock imageWidth { label: Image Size; widget: select; options: 166=Small|258=Medium|350=Big; variant:imageWidth;}
       logoBlock { label: Logo Block; properties: image imageWidth=258; variant: imageWidth; theme: contentTheme}
 
-      titleBlock { label: Title; theme: contentTheme}
+      titleBlock { label: Title; theme: titleTheme}
 
       imageBlock longTextStyle {
         label: Alternative Text;
@@ -228,6 +278,10 @@
       singleArticleBlock:preview,
       doubleArticleBlock:preview,
       tripleArticleBlock:preview,
+      tripleArticleBlock_1_2:preview,
+      tripleArticleBlock_2_1:preview,
+      tripleArticleBlock_1_1_1:preview,
+      quadArticleBlock:preview,
       titleBlock:preview,
       footerBlock:preview,
       socialBlock:preview,
@@ -338,6 +392,18 @@
     [data-ko-block=preheaderBlock] .long-text p:last-child { Margin-bottom: 0px; }
     [data-ko-block=preheaderBlock] .long-text p:first-child { Margin-top: 0px; }
 
+    [data-ko-block=quadArticleBlock] .links-color a,
+    [data-ko-block=quadArticleBlock] .links-color a:link,
+    [data-ko-block=quadArticleBlock] .links-color a:visited,
+    [data-ko-block=quadArticleBlock] .links-color a:hover {
+      color: #3f3f3f;
+      -ko-color: @longTextStyle.linksColor;
+      text-decoration: underline;
+    }
+    [data-ko-block=quadArticleBlock] .long-text p { Margin: 1em 0px; }
+    [data-ko-block=quadArticleBlock] .long-text p:last-child { Margin-bottom: 0px; }
+    [data-ko-block=quadArticleBlock] .long-text p:first-child { Margin-top: 0px; }
+
     [data-ko-block=tripleArticleBlock] .links-color a,
     [data-ko-block=tripleArticleBlock] .links-color a:link,
     [data-ko-block=tripleArticleBlock] .links-color a:visited,
@@ -349,6 +415,42 @@
     [data-ko-block=tripleArticleBlock] .long-text p { Margin: 1em 0px; }
     [data-ko-block=tripleArticleBlock] .long-text p:last-child { Margin-bottom: 0px; }
     [data-ko-block=tripleArticleBlock] .long-text p:first-child { Margin-top: 0px; }
+
+    [data-ko-block=tripleArticleBlock_1_2] .links-color a,
+    [data-ko-block=tripleArticleBlock_1_2] .links-color a:link,
+    [data-ko-block=tripleArticleBlock_1_2] .links-color a:visited,
+    [data-ko-block=tripleArticleBlock_1_2] .links-color a:hover {
+      color: #3f3f3f;
+      -ko-color: @longTextStyle.linksColor;
+      text-decoration: underline;
+    }
+    [data-ko-block=tripleArticleBlock_1_2] .long-text p { Margin: 1em 0px; }
+    [data-ko-block=tripleArticleBlock_1_2] .long-text p:last-child { Margin-bottom: 0px; }
+    [data-ko-block=tripleArticleBlock_1_2] .long-text p:first-child { Margin-top: 0px; }
+
+    [data-ko-block=tripleArticleBlock_2_1] .links-color a,
+    [data-ko-block=tripleArticleBlock_2_1] .links-color a:link,
+    [data-ko-block=tripleArticleBlock_2_1] .links-color a:visited,
+    [data-ko-block=tripleArticleBlock_2_1] .links-color a:hover {
+      color: #3f3f3f;
+      -ko-color: @longTextStyle.linksColor;
+      text-decoration: underline;
+    }
+    [data-ko-block=tripleArticleBlock_2_1] .long-text p { Margin: 1em 0px; }
+    [data-ko-block=tripleArticleBlock_2_1] .long-text p:last-child { Margin-bottom: 0px; }
+    [data-ko-block=tripleArticleBlock_2_1] .long-text p:first-child { Margin-top: 0px; }
+
+    [data-ko-block=tripleArticleBlock_1_1_1] .links-color a,
+    [data-ko-block=tripleArticleBlock_1_1_1] .links-color a:link,
+    [data-ko-block=tripleArticleBlock_1_1_1] .links-color a:visited,
+    [data-ko-block=tripleArticleBlock_1_1_1] .links-color a:hover {
+      color: #3f3f3f;
+      -ko-color: @longTextStyle.linksColor;
+      text-decoration: underline;
+    }
+    [data-ko-block=tripleArticleBlock_1_1_1] .long-text p { Margin: 1em 0px; }
+    [data-ko-block=tripleArticleBlock_1_1_1] .long-text p:last-child { Margin-bottom: 0px; }
+    [data-ko-block=tripleArticleBlock_1_1_1] .long-text p:first-child { Margin-top: 0px; }
 
     [data-ko-block=doubleArticleBlock] .links-color a,
     [data-ko-block=doubleArticleBlock] .links-color a:link, 
@@ -539,6 +641,1688 @@
 
   <div data-ko-container="main" data-ko-wrap="false">
 
+      <!-- imageBlock  -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="imageBlock">
+          <tr>
+              <td class="vb-outer" valign="top" align="center">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table data-ko-display="gutterVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
+                             cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
+                          <tr>
+                              <td valign="top" align="center">
+                                  <a data-ko-link="image.url" href="" style="text-decoration: none;"><img data-ko-editable="image.src"
+                                                                                                          hspace="0" border="0" vspace="0" width="570" data-ko-placeholder-height="200"
+                                                                                                          src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=570%2C200" class="mobile-full"
+                                                                                                          alt="" style="max-width: 570px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
+                  font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
+                  -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt;" /></a>
+                              </td>
+                          </tr>
+                      </table>
+                      <table data-ko-display="gutterVisible" width="570" class="vb-container fullpad" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
+                             cellspacing="18" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor; display: none;">
+                          <tr>
+                              <td valign="top" align="center">
+                                  <a data-ko-link="image.url" href="" style="text-decoration: none;"><img data-ko-editable="image.src"
+                                                                                                          hspace="0" border="0" vspace="0" width="534" data-ko-placeholder-height="187"
+                                                                                                          src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=534%2C187" class="mobile-full"
+                                                                                                          alt="" style="max-width: 534px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
+                  font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
+                  -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt;" /></a>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- imageBlock -->
+
+      <!-- TitleBlock -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff"
+             style="background-color: #ffffff; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="titleBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#ffffff"
+                  style="background-color: #ffffff; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-container halfpad" bgcolor="#548dd4"
+                             style="width: 100%; max-width: 570px; background-color: #548dd4; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td bgcolor="#548dd4" align="center"
+                                  style="background-color: #548dd4; font-size: 22px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; text-align: center;
+              -ko-attr-align: @bigTitleStyle.align; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;
+              -ko-font-size: @[bigTitleStyle.size]px; -ko-font-family: @bigTitleStyle.face; -ko-color: @bigTitleStyle.color; -ko-text-align: @bigTitleStyle.align">
+                                  <span data-ko-editable="text">[Campaign Subject]</span>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /TitleBlock -->
+
+      <!-- textBlock -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="textBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+              -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                  data-ko-editable="longText" class="long-text links-color">
+                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                  <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                              </td>
+                          </tr>
+                          <tr data-ko-display="buttonVisible">
+                              <td valign="top">
+                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                      <tr>
+                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="buttonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @buttonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /textBlock -->
+
+      <!-- hrBlock -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="hrBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-container halfpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td valign="top" bgcolor="#ffffff" style="background-color: #ffffff;
+              -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor" align="center">
+                                  <table width="100%" cellspacing="0" cellpadding="0" border="0"
+                                         style="width:100%; -ko-width: @[hrStyle.hrWidth]%; -ko-attr-width: @[hrStyle.hrWidth]%">
+                                      <tr>
+                                          <td width="100%" height="1" style="font-size:1px; line-height: 1px; width: 100%; background-color: #3f3f3f;
+                  -ko-background-color: @hrStyle.color; -ko-attr-height: @hrStyle.hrHeight; -ko-line-height: @[hrStyle.hrHeight]px">&nbsp;</td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /hrBlock -->
+
+      <!-- doubleArticleBlock -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="doubleArticleBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td align="center" valign="top" style="font-size: 0">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="276"><![endif]-->
+                                  <div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="left">
+                                          <tr data-ko-display="imageVisible">
+                                              <td width="100%" align="left" class="links-color" style="padding-bottom: 9px">
+                                                  <a data-ko-link="leftImage.url">
+                                                      <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="258" height="100"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C100" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                              -ko-attr-alt: @leftImage.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="titleVisible">
+                                              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
+                          Title
+                          </span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                                  data-ko-editable="leftLongText" class="long-text links-color">
+                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="buttonVisible">
+                                              <td valign="top">
+                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                      <tr>
+                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                          </td>
+                                                      </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="276">
+                                  <![endif]--><div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="right">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="rightImage.url">
+                                                  <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="258" height="100"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C100" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                              -ko-attr-alt: @rightImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="rightLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div>
+                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /doubleArticleBlock -->
+
+      <!-- tripleArticleBlock -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="tripleArticleBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td align="center" valign="top" class="mobile-row" style="font-size: 0">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="184"><![endif]-->
+                                  <div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%" align="left">
+                                          <tr data-ko-display="imageVisible">
+                                              <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                                  <a data-ko-link="leftImage.url" href="">
+                                                      <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="166" height="90"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C90" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                               -ko-attr-alt: @leftImage.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="titleVisible">
+                                              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
+                          </span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                                  data-ko-editable="leftLongText" class="long-text links-color">
+                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="buttonVisible">
+                                              <td valign="top">
+                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                      <tr>
+                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                          </td>
+                                                      </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="184">
+                                  <![endif]--><div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%" align="left">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="middleImage.url">
+                                                  <img data-ko-editable="middleImage.src" border="0" hspace="0" vspace="0" width="166" height="90"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C90" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                              -ko-attr-alt: @middleImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="middleLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="middleButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @middleButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="184">
+                                  <![endif]--><div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%" align="right">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="rightImage.url">
+                                                  <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="166" height="90"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C90" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                              -ko-attr-alt: @rightImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="rightLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div>
+                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /tripleArticleBlock -->
+
+      <!-- quadArticleBlock -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="quadArticleBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td align="center" valign="top" style="font-size: 0">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="138"><![endif]-->
+                                  <div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="left">
+                                          <tr data-ko-display="imageVisible">
+                                              <td width="100%" align="left" class="links-color" style="padding-bottom: 9px">
+                                                  <a data-ko-link="leftImage.url">
+                                                      <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                              -ko-attr-alt: @leftImage.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="titleVisible">
+                                              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
+                          Title
+                          </span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                                  data-ko-editable="leftLongText" class="long-text links-color">
+                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="buttonVisible">
+                                              <td valign="top">
+                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                      <tr>
+                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                          </td>
+                                                      </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div><!--[if (gte mso 9)|(lte ie 8)]>
+                                  </td>
+
+                              <td align="center" valign="top" style="font-size: 0">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="138"><![endif]-->
+                                  <div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="left">
+                                          <tr data-ko-display="imageVisible">
+                                              <td width="100%" align="left" class="links-color" style="padding-bottom: 9px">
+                                                  <a data-ko-link="middleLeftImage.url">
+                                                      <img data-ko-editable="middleLeftImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                              -ko-attr-alt: @middleLeftImage.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="titleVisible">
+                                              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
+                          Title
+                          </span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                                  data-ko-editable="middleLeftLongText" class="long-text links-color">
+                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="buttonVisible">
+                                              <td valign="top">
+                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                      <tr>
+                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="middleLeftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @middleLeftButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                          </td>
+                                                      </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div><!--[if (gte mso 9)|(lte ie 8)]>
+                                  </td>
+
+                              <td align="center" valign="top" style="font-size: 0">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="138"><![endif]-->
+                                  <div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="left">
+                                          <tr data-ko-display="imageVisible">
+                                              <td width="100%" align="left" class="links-color" style="padding-bottom: 9px">
+                                                  <a data-ko-link="middleRightImage.url">
+                                                      <img data-ko-editable="middleRightImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                              -ko-attr-alt: @middleRightImage.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="titleVisible">
+                                              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
+                          Title
+                          </span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                                  data-ko-editable="middleRightLongText" class="long-text links-color">
+                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="buttonVisible">
+                                              <td valign="top">
+                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                      <tr>
+                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="middleRightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @middleRightButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                          </td>
+                                                      </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div><!--[if (gte mso 9)|(lte ie 8)]>
+                                  </td>
+
+                              <td align="left" valign="top" width="138">
+                                  <![endif]--><div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="right">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="rightImage.url">
+                                                  <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
+                              -ko-attr-alt: @rightImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="rightLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div>
+                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /quadArticleBlock -->
+
+      <!-- tripleArticleBlock_1_2 -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="tripleArticleBlock_1_2">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td align="center" valign="top" class="mobile-row" style="font-size: 0">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="276"><![endif]-->
+                                  <div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="left">
+                                          <tr data-ko-display="imageVisible">
+                                              <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                                  <a data-ko-link="leftImage.url" href="">
+                                                      <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="258" height="140"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C140" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto;
+                               -ko-attr-alt: @leftImage.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="titleVisible">
+                                              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
+                          </span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                                  data-ko-editable="leftLongText" class="long-text links-color">
+                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="buttonVisible">
+                                              <td valign="top">
+                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                      <tr>
+                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                          </td>
+                                                      </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="138">
+                                  <![endif]--><div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="left">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="middleImage.url">
+                                                  <img data-ko-editable="middleImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto;
+                              -ko-attr-alt: @middleImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="middleLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="middleButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @middleButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="138">
+                                  <![endif]--><div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="right">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="rightImage.url">
+                                                  <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto;
+                              -ko-attr-alt: @rightImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="rightLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div>
+                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /tripleArticleBlock_1_2 -->
+
+      <!-- tripleArticleBlock_2_1 -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="tripleArticleBlock_2_1">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td align="center" valign="top" class="mobile-row" style="font-size: 0">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="138"><![endif]-->
+                                  <div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="left">
+                                          <tr data-ko-display="imageVisible">
+                                              <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                                  <a data-ko-link="leftImage.url" href="">
+                                                      <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto;
+                               -ko-attr-alt: @leftImage.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="titleVisible">
+                                              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
+                          </span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                                  data-ko-editable="leftLongText" class="long-text links-color">
+                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="buttonVisible">
+                                              <td valign="top">
+                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                      <tr>
+                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                          </td>
+                                                      </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="138">
+                                  <![endif]--><div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="left">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="middleImage.url">
+                                                  <img data-ko-editable="middleImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto;
+                              -ko-attr-alt: @middleImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="middleLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="middleButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @middleButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="276">
+                                  <![endif]--><div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="right">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="rightImage.url">
+                                                  <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="258" height="140"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C140" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto;
+                              -ko-attr-alt: @rightImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="rightLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div>
+                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /tripleArticleBlock_2_1 -->
+
+      <!-- tripleArticleBlock_1_1_1 -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="tripleArticleBlock_1_1_1">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td align="center" valign="top" class="mobile-row" style="font-size: 0">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="138"><![endif]-->
+                                  <div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="left">
+                                          <tr data-ko-display="imageVisible">
+                                              <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                                  <a data-ko-link="leftImage.url" href="">
+                                                      <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto;
+                               -ko-attr-alt: @leftImage.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="titleVisible">
+                                              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
+                          </span>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                                  data-ko-editable="leftLongText" class="long-text links-color">
+                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              </td>
+                                          </tr>
+                                          <tr data-ko-display="buttonVisible">
+                                              <td valign="top">
+                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                      <tr>
+                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                          </td>
+                                                      </tr>
+                                                  </table>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="276">
+                                  <![endif]--><div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="left">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="middleImage.url">
+                                                  <img data-ko-editable="middleImage.src" border="0" hspace="0" vspace="0" width="258" height="140"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C140" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto;
+                              -ko-attr-alt: @middleImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="middleLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="middleButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @middleButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                              <td align="left" valign="top" width="138">
+                                  <![endif]--><div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="right">
+                                      <tr data-ko-display="imageVisible">
+                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
+                                              <a data-ko-link="rightImage.url">
+                                                  <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
+                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%80" class="mobile-full"
+                                                       alt="" style="vertical-align:top; width: 100%; height: auto;
+                              -ko-attr-alt: @rightImage.alt" />
+                                              </a>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
+                         Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="rightLongText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </div>
+                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /tripleArticleBlock_1_1_1 -->
+
+      <!-- sideArticleBlock  -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="sideArticleBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td align="center" class="mobile-row" valign="top" style="font-size: 0;">
+
+                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                  <div data-ko-display="imagePos eq 'left'" data-ko-wrap="false" style="width: 100%; max-width:184px; -ko-max-width:@[18 + Math.round(imageWidth)]px; display:inline-block" class="mobile-full">
+                                      <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="184" style="-ko-attr-width: @[18 + Math.round(imageWidth)]"><![endif]-->
+                                      <div style="display:inline-block; max-width:184px; -ko-max-width:@[18 + Math.round(imageWidth)]px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                          <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%; -ko-attr-width: @[18 + Math.round(imageWidth)]" align="left">
+                                              <tr>
+                                                  <td width="100%" valign="top" align="left" class="links-color">
+                                                      <a data-ko-link="image.url" href="">
+                                                          <img data-ko-editable="image.src" border="0" hspace="0" vspace="0" width="166"
+                                                               data-ko-placeholder-height="130" class="mobile-full" alt=""
+                                                               src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C130"
+                                                               style="vertical-align: top; width: 100%; height: auto; -ko-attr-width: @imageWidth; max-width: 166px; -ko-max-width: @[imageWidth]px; -ko-attr-alt: @image.alt" />
+                                                      </a>
+                                                  </td>
+                                              </tr>
+                                          </table>
+
+                                      </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                                      <![endif]--></div><!--[if (gte mso 9)|(lte ie 8)]>
+                                  <td align="left" valign="top" width="368" style="-ko-attr-width: @[570 - 2 * 18 - Math.round(imageWidth)]">
+                                  <![endif]--><div style="display:inline-block; max-width:368px; -ko-max-width: @[570 - 2 * 18 - Math.round(imageWidth)]px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="368" style="width: 100%; -ko-attr-width: @[570 - 2 * 18 - Math.round(imageWidth)]" align="left">
+                                      <tr data-ko-display="titleVisible">
+                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="titleText">
+                          Title
+                          </span>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                              data-ko-editable="longText" class="long-text links-color">
+                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                          </td>
+                                      </tr>
+                                      <tr data-ko-display="buttonVisible">
+                                          <td valign="top">
+                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                                  <tr>
+                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="buttonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @buttonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div><!--[if (gte mso 9)|(lte ie 8)]></td>
+                                  <![endif]--><div data-ko-display="imagePos eq 'right'" data-ko-wrap="false" style="width: 100%; max-width:184px; -ko-max-width:@[18 + Math.round(imageWidth)]px; display:inline-block; display: none;" class="mobile-full"><!--[if (gte mso 9)|(lte ie 8)]>
+                                  <td data-ko-display="imagePos eq 'right'" align="left" valign="top" width="184" style="display: none; -ko-attr-width: @[18 + Math.round(imageWidth)]">
+                                  <![endif]--><div style="display:inline-block; max-width:184px; -ko-max-width:@[18 + Math.round(imageWidth)]px; vertical-align:top; width:100%;" class="mobile-full">
+
+                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%; -ko-attr-width: @[18 + Math.round(imageWidth)]" align="left">
+                                          <tr>
+                                              <td width="100%" valign="top" align="left" class="links-color">
+                                                  <a data-ko-link="image.url" href="">
+                                                      <img data-ko-editable="image.src" border="0" hspace="0" vspace="0" width="166" data-ko-placeholder-height="130" class="mobile-full"
+                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C130" class="mobile-full"
+                                                           alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-width: @imageWidth; max-width: 166px; -ko-max-width: @[imageWidth]px; -ko-attr-alt: @image.alt" />
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                      </table>
+
+                                  </div>
+                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+                              </div>
+                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /sideArticleBlock -->
+
+      <!-- singleArticleBlock -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="singleArticleBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr data-ko-display="imageVisible">
+                              <td width="100%" valign="top" align="left" class="links-color">
+                                  <a data-ko-link="image.url" href="">
+                                      <img data-ko-editable="image.src" border="0" hspace="0" vspace="0" width="534" data-ko-placeholder-height="200"
+                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=534%2C200" class="mobile-full"
+                                           alt="" style="vertical-align:top; max-width:534px; width: 100%; height: auto;
+                  -ko-attr-alt: @image.alt" />
+                                  </a>
+                              </td>
+                          </tr>
+                          <tr><td><table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tr data-ko-display="titleVisible">
+                                  <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
+                -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
+                <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="text">
+               Section Title
+                </span>
+                                  </td>
+                              </tr>
+                              <tr data-ko-display="titleVisible">
+                                  <td height="9" style="font-size:1px; line-height: 1px;">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                                      data-ko-editable="longText" class="long-text links-color">
+                                      <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                  </td>
+                              </tr>
+                              <tr data-ko-display="buttonVisible">
+                                  <td height="13" style="font-size:1px; line-height: 1px;">&nbsp;</td>
+                              </tr>
+                              <tr data-ko-display="buttonVisible">
+                                  <td valign="top">
+                                      <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                          <tr>
+                                              <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
+                                              <span style="
+                                                    font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 6px 18px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[buttonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
+                                                    -ko-background-color: @buttonStyle.buttonColor;
+                                                    -ko-font-size: @[buttonStyle.size]px;
+                                                    -ko-font-family: @buttonStyle.face;
+                                                    -ko-color: @buttonStyle.color; ">
+                                                  <a data-ko-editable="buttonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @buttonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </td>
+                              </tr>
+                          </table></td></tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /singleArticleBlock -->
+
+      <!-- buttonBlock -->
+      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"  data-ko-block="buttonBlock">
+          <tr>
+              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                  <div class="oldwebkit">
+                      <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
+                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+                          <tr>
+                              <td valign="top" bgcolor="#ffffff" style="background-color: #ffffff;
+              -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor" align="center">
+
+                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                                      <tr>
+                                          <td width="100%" valign="middle" style="text-align:center; -ko-text-align: @bigButtonStyle.align;">
+                                              <span style="
+                                                    font-size: 22px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 12px 14px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[bigButtonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @bigButtonStyle.buttonColor;
+                                                    -ko-background-color: @bigButtonStyle.buttonColor;
+                                                    -ko-font-size: @[bigButtonStyle.size]px;
+                                                    -ko-font-family: @bigButtonStyle.face;
+                                                    -ko-color: @bigButtonStyle.color; ">
+                                                  <a data-ko-editable="buttonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @bigButtonStyle.color; -ko-attr-href: @buttonLink.url">
+                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                                          </td>
+                                      </tr>
+                                  </table>
+
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+              </td>
+          </tr>
+      </table>
+      <!-- /buttonBlock -->
+
+
+
+
+
+
+      <!-- ----------------------------------------------------------------------------------------------------- -->
+
   <!-- logoBlock -->
   <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
     style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="logoBlock">
@@ -573,643 +2357,6 @@
     </tr>
   </table>
   <!-- /logoBlock  -->
-
-  <!-- sideArticleBlock  -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="sideArticleBlock">
-    <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff" 
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td align="center" class="mobile-row" valign="top" style="font-size: 0;">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
-<div data-ko-display="imagePos eq 'left'" data-ko-wrap="false" style="width: 100%; max-width:184px; -ko-max-width:@[18 + Math.round(imageWidth)]px; display:inline-block" class="mobile-full">
-<!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="184" style="-ko-attr-width: @[18 + Math.round(imageWidth)]"><![endif]--> 
-<div style="display:inline-block; max-width:184px; -ko-max-width:@[18 + Math.round(imageWidth)]px; vertical-align:top; width:100%;" class="mobile-full"> 
-
-                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%; -ko-attr-width: @[18 + Math.round(imageWidth)]" align="left">
-                      <tr>
-                        <td width="100%" valign="top" align="left" class="links-color">
-                          <a data-ko-link="image.url" href="">
-                            <img data-ko-editable="image.src" border="0" hspace="0" vspace="0" width="166"
-                              data-ko-placeholder-height="130" class="mobile-full" alt=""
-                              src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C130" 
-                              style="vertical-align: top; width: 100%; height: auto; -ko-attr-width: @imageWidth; max-width: 166px; -ko-max-width: @[imageWidth]px; -ko-attr-alt: @image.alt" />
-                          </a>
-                        </td>
-                      </tr>
-                    </table>
-
-</div><!--[if (gte mso 9)|(lte ie 8)]></td>
-<![endif]--></div><!--[if (gte mso 9)|(lte ie 8)]>
-<td align="left" valign="top" width="368" style="-ko-attr-width: @[570 - 2 * 18 - Math.round(imageWidth)]">
-<![endif]--><div style="display:inline-block; max-width:368px; -ko-max-width: @[570 - 2 * 18 - Math.round(imageWidth)]px; vertical-align:top; width:100%;" class="mobile-full"> 
-
-                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="368" style="width: 100%; -ko-attr-width: @[570 - 2 * 18 - Math.round(imageWidth)]" align="left">
-                      <tr data-ko-display="titleVisible">
-                        <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
-                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="titleText">
-                          Title
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                          data-ko-editable="longText" class="long-text links-color">
-                          <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="buttonVisible">
-                        <td valign="top">
-                          <table cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
-                            <tr>
-                              <td width="auto" valign="middle" bgcolor="#bfbfbf" align="center" height="26" 
-                                style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align:center; color: #3f3f3f; font-weight: normal;
-                                padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; border-radius: 4px;
-                                -ko-border-radius: @[buttonStyle.radius]px;
-                                -ko-attr-bgcolor: @buttonStyle.buttonColor; -ko-background-color: @buttonStyle.buttonColor;
-                                -ko-font-size: @[buttonStyle.size]px; -ko-font-family: @buttonStyle.face; -ko-color: @buttonStyle.color;">
-                                <a data-ko-editable="buttonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal;
-                                  -ko-color: @buttonStyle.color; -ko-attr-href: @buttonLink.url">BUTTON</a>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-</div><!--[if (gte mso 9)|(lte ie 8)]></td>
-<![endif]--><div data-ko-display="imagePos eq 'right'" data-ko-wrap="false" style="width: 100%; max-width:184px; -ko-max-width:@[18 + Math.round(imageWidth)]px; display:inline-block; display: none;" class="mobile-full"><!--[if (gte mso 9)|(lte ie 8)]>
-<td data-ko-display="imagePos eq 'right'" align="left" valign="top" width="184" style="display: none; -ko-attr-width: @[18 + Math.round(imageWidth)]">
-<![endif]--><div style="display:inline-block; max-width:184px; -ko-max-width:@[18 + Math.round(imageWidth)]px; vertical-align:top; width:100%;" class="mobile-full"> 
-
-                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%; -ko-attr-width: @[18 + Math.round(imageWidth)]" align="left">
-                      <tr>
-                        <td width="100%" valign="top" align="left" class="links-color">
-                          <a data-ko-link="image.url" href="">
-                            <img data-ko-editable="image.src" border="0" hspace="0" vspace="0" width="166" data-ko-placeholder-height="130" class="mobile-full"
-                              src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C130" class="mobile-full" 
-                              alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-width: @imageWidth; max-width: 166px; -ko-max-width: @[imageWidth]px; -ko-attr-alt: @image.alt" />
-                          </a>
-                        </td>
-                      </tr>
-                    </table>
-
-</div>
-<!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-</div>
-<!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
-
-            </td>
-          </tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- /sideArticleBlock -->
-
-  <!-- singleArticleBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="singleArticleBlock">
-    <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff" 
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr data-ko-display="imageVisible">
-            <td width="100%" valign="top" align="left" class="links-color">
-              <a data-ko-link="image.url" href="">
-                <img data-ko-editable="image.src" border="0" hspace="0" vspace="0" width="534" data-ko-placeholder-height="200"
-                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=534%2C200" class="mobile-full" 
-                  alt="" style="vertical-align:top; max-width:534px; width: 100%; height: auto;
-                  -ko-attr-alt: @image.alt" />
-              </a>
-            </td>
-          </tr>
-          <tr><td><table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
-            <tr data-ko-display="titleVisible">
-              <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
-                -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="text">
-               Section Title
-                </span>
-              </td>
-            </tr>
-            <tr data-ko-display="titleVisible">
-              <td height="9" style="font-size:1px; line-height: 1px;">&nbsp;</td>
-            </tr>
-            <tr>
-              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                data-ko-editable="longText" class="long-text links-color">
-                <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </td>
-            </tr>
-            <tr data-ko-display="buttonVisible">
-              <td height="13" style="font-size:1px; line-height: 1px;">&nbsp;</td>
-            </tr>
-            <tr data-ko-display="buttonVisible">
-              <td valign="top">
-                <table cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full">
-                  <tr>
-                    <td width="auto" valign="middle" bgcolor="#bfbfbf" align="center" height="26" 
-                      style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align:center; color: #3f3f3f; font-weight: normal;
-                      padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; border-radius: 4px;
-                      -ko-border-radius: @[buttonStyle.radius]px;
-                      -ko-attr-bgcolor: @buttonStyle.buttonColor; -ko-background-color: @buttonStyle.buttonColor;
-                      -ko-font-size: @[buttonStyle.size]px; -ko-font-family: @buttonStyle.face; -ko-color: @buttonStyle.color; ">
-                      <a data-ko-editable="buttonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal;
-                        -ko-color: @buttonStyle.color; -ko-attr-href: @buttonLink.url">BUTTON</a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table></td></tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- /singleArticleBlock -->
-
-  <!-- TitleBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="titleBlock">
-    <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-container halfpad" bgcolor="#ffffff" 
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td bgcolor="#ffffff" align="center" 
-              style="background-color: #ffffff; font-size: 22px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align: center;
-              -ko-attr-align: @bigTitleStyle.align; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;
-              -ko-font-size: @[bigTitleStyle.size]px; -ko-font-family: @bigTitleStyle.face; -ko-color: @bigTitleStyle.color; -ko-text-align: @bigTitleStyle.align">
-              <span data-ko-editable="text">Section Title</span>
-            </td>
-          </tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- /TitleBlock -->
-
-  <!-- textBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="textBlock">
-    <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff" 
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-              -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-              data-ko-editable="longText" class="long-text links-color">
-              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
-              <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            </td>
-          </tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- /textBlock -->
-
-  <!-- tripleArticleBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="tripleArticleBlock">
-    <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff" 
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td align="center" valign="top" class="mobile-row" style="font-size: 0">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
-<!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="184"><![endif]--> 
-<div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full"> 
-
-                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%" align="left">
-                      <tr data-ko-display="imageVisible">
-                        <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
-                          <a data-ko-link="leftImage.url" href="">
-                            <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="166" height="90"
-                              src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C90" class="mobile-full" 
-                             alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight; 
-                               -ko-attr-alt: @leftImage.alt" />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="titleVisible">
-                        <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
-                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; 
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                          data-ko-editable="leftLongText" class="long-text links-color">
-                          <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="buttonVisible">
-                        <td valign="top">
-                          <table cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
-                            <tr>
-                              <td width="auto" valign="middle" bgcolor="#bfbfbf" align="center" height="26" 
-                                style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align:center; color: #3f3f3f; font-weight: normal;
-                                padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; border-radius: 4px;
-                                -ko-border-radius: @[buttonStyle.radius]px;
-                                -ko-attr-bgcolor: @buttonStyle.buttonColor; -ko-background-color: @buttonStyle.buttonColor;
-                                -ko-font-size: @[buttonStyle.size]px; -ko-font-family: @buttonStyle.face; -ko-color: @buttonStyle.color; ">
-                                <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal;
-                                  -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">BUTTON</a>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-
-</div><!--[if (gte mso 9)|(lte ie 8)]></td>
-<td align="left" valign="top" width="184">
-<![endif]--><div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full"> 
-
-                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%" align="left">
-                      <tr data-ko-display="imageVisible">
-                        <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
-                          <a data-ko-link="middleImage.url">
-                            <img data-ko-editable="middleImage.src" border="0" hspace="0" vspace="0" width="166" height="90"
-                              src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C90" class="mobile-full" 
-                              alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight; 
-                              -ko-attr-alt: @middleImage.alt" />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="titleVisible">
-                        <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
-                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
-                         Title
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                          data-ko-editable="middleLongText" class="long-text links-color">
-                          <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="buttonVisible">
-                        <td valign="top">
-                          <table cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
-                            <tr>
-                              <td width="auto" valign="middle" bgcolor="#bfbfbf" align="center" height="26" 
-                                style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align:center; color: #3f3f3f; font-weight: normal;
-                                padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; border-radius: 4px;
-                                -ko-border-radius: @[buttonStyle.radius]px;
-                                -ko-attr-bgcolor: @buttonStyle.buttonColor; -ko-background-color: @buttonStyle.buttonColor;
-                                -ko-font-size: @[buttonStyle.size]px; -ko-font-family: @buttonStyle.face; -ko-color: @buttonStyle.color; ">
-                                <a data-ko-editable="middleButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal;
-                                  -ko-color: @buttonStyle.color; -ko-attr-href: @middleButtonLink.url">BUTTON</a>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-
-</div><!--[if (gte mso 9)|(lte ie 8)]></td>
-<td align="left" valign="top" width="184">
-<![endif]--><div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full"> 
-
-                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="184" style="width: 100%" align="right">
-                      <tr data-ko-display="imageVisible">
-                        <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
-                          <a data-ko-link="rightImage.url">
-                            <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="166" height="90"
-                              src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C90" class="mobile-full" 
-                              alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight; 
-                              -ko-attr-alt: @rightImage.alt" />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="titleVisible">
-                        <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
-                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                          data-ko-editable="rightLongText" class="long-text links-color">
-                          <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="buttonVisible">
-                        <td valign="top">
-                          <table cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
-                            <tr>
-                              <td width="auto" valign="middle" bgcolor="#bfbfbf" align="center" height="26" 
-                                style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align:center; color: #3f3f3f; font-weight: normal;
-                                padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; border-radius: 4px;
-                                -ko-border-radius: @[buttonStyle.radius]px;
-                                -ko-attr-bgcolor: @buttonStyle.buttonColor; -ko-background-color: @buttonStyle.buttonColor;
-                                -ko-font-size: @[buttonStyle.size]px; -ko-font-family: @buttonStyle.face; -ko-color: @buttonStyle.color;">
-                                <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal;
-                                  -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">BUTTON</a>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-
-</div>
-<!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-<!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
-
-            </td>
-          </tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- /tripleArticleBlock -->
-
-  <!-- doubleArticleBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="doubleArticleBlock">
-    <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td align="center" valign="top" style="font-size: 0">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
-<!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="276"><![endif]-->
-<div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full">
-
-                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="left">
-                      <tr data-ko-display="imageVisible">
-                        <td width="100%" align="left" class="links-color" style="padding-bottom: 9px">
-                          <a data-ko-link="leftImage.url">
-                            <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="258" height="100"
-                              src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C100" class="mobile-full"
-                              alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
-                              -ko-attr-alt: @leftImage.alt" />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="titleVisible">
-                        <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
-                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
-                          Title
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                          data-ko-editable="leftLongText" class="long-text links-color">
-                          <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="buttonVisible">
-                        <td valign="top">
-                          <table cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px;">
-                            <tr>
-                              <td width="auto" valign="middle" bgcolor="#bfbfbf" align="center" height="26"
-                                style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align:center; color: #3f3f3f; font-weight: normal;
-                                padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; border-radius: 4px;
-                                -ko-border-radius: @[buttonStyle.radius]px;
-                                -ko-attr-bgcolor: @buttonStyle.buttonColor; -ko-background-color: @buttonStyle.buttonColor;
-                                -ko-font-size: @[buttonStyle.size]px; -ko-font-family: @buttonStyle.face; -ko-color: @buttonStyle.color; ">
-                                <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal;
-                                  -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">BUTTON</a>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-
-</div><!--[if (gte mso 9)|(lte ie 8)]></td>
-<td align="left" valign="top" width="276">
-<![endif]--><div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full">
-
-                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="right">
-                      <tr data-ko-display="imageVisible">
-                        <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
-                          <a data-ko-link="rightImage.url">
-                            <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="258" height="100"
-                              src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C100" class="mobile-full"
-                              alt="" style="vertical-align:top; width: 100%; height: auto; -ko-attr-height: @imageHeight;
-                              -ko-attr-alt: @rightImage.alt" />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="titleVisible">
-                        <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
-                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                          data-ko-editable="rightLongText" class="long-text links-color">
-                          <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
-                        </td>
-                      </tr>
-                      <tr data-ko-display="buttonVisible">
-                        <td valign="top">
-                          <table cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px;">
-                            <tr>
-                              <td width="auto" valign="middle" bgcolor="#bfbfbf" align="center" height="26"
-                                style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align:center; color: #3f3f3f; font-weight: normal;
-                                padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; border-radius: 4px;
-                                -ko-border-radius: @[buttonStyle.radius]px;
-                                -ko-attr-bgcolor: @buttonStyle.buttonColor; -ko-background-color: @buttonStyle.buttonColor;
-                                -ko-font-size: @[buttonStyle.size]px; -ko-font-family: @buttonStyle.face; -ko-color: @buttonStyle.color; ">
-                                <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal;
-                                  -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">BUTTON</a>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-
-</div>
-<!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-<!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
-
-            </td>
-          </tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- /doubleArticleBlock -->
-
-  <!-- hrBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="hrBlock">
-    <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-container halfpad" bgcolor="#ffffff"
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td valign="top" bgcolor="#ffffff" style="background-color: #ffffff;
-              -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor" align="center">
-              <table width="100%" cellspacing="0" cellpadding="0" border="0"
-                style="width:100%; -ko-width: @[hrStyle.hrWidth]%; -ko-attr-width: @[hrStyle.hrWidth]%">
-                <tr>
-                  <td width="100%" height="1" style="font-size:1px; line-height: 1px; width: 100%; background-color: #3f3f3f;
-                  -ko-background-color: @hrStyle.color; -ko-attr-height: @hrStyle.hrHeight; -ko-line-height: @[hrStyle.hrHeight]px">&nbsp;</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- /hrBlock -->
-
-  <!-- buttonBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"  data-ko-block="buttonBlock">
-    <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td valign="top" bgcolor="#ffffff" style="background-color: #ffffff;
-              -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor" align="center">
-
-              <table cellpadding="0" border="0" align="center" cellspacing="0" class="mobile-full">
-                <tr>
-                  <td width="auto" valign="middle" bgcolor="#bfbfbf" align="center" height="50" 
-                    style="font-size:22px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; font-weight: normal;
-                    padding-left: 14px; padding-right: 14px; background-color: #bfbfbf; border-radius: 4px;
-                    -ko-attr-bgcolor: @bigButtonStyle.buttonColor; -ko-background-color: @bigButtonStyle.buttonColor;
-                     -ko-border-radius: @[bigButtonStyle.radius]px;
-                    -ko-font-size: @[bigButtonStyle.size]px; -ko-font-family: @bigButtonStyle.face; -ko-color: @bigButtonStyle.color; ">
-                    <a data-ko-link="link.url" data-ko-editable="link.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal;
-                      -ko-color: @bigButtonStyle.color;">BUTTON</a>
-                  </td>
-                </tr>
-              </table>
-
-            </td>
-          </tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- /buttonBlock -->
-
-  <!-- imageBlock  -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
-    -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="imageBlock">
-    <tr>
-      <td class="vb-outer" valign="top" align="center">
-
-<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-        <div class="oldwebkit">
-        <table data-ko-display="gutterVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
-          cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
-          <tr>
-            <td valign="top" align="center">
-              <a data-ko-link="image.url" href="" style="text-decoration: none;"><img data-ko-editable="image.src"
-                  hspace="0" border="0" vspace="0" width="570" data-ko-placeholder-height="200"
-                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=570%2C200" class="mobile-full"
-                  alt="" style="max-width: 570px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
-                  font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
-                  -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt;" /></a>
-            </td>
-          </tr>
-        </table>
-        <table data-ko-display="gutterVisible" width="570" class="vb-container fullpad" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
-          cellspacing="18" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor; display: none;">
-          <tr>
-            <td valign="top" align="center">
-              <a data-ko-link="image.url" href="" style="text-decoration: none;"><img data-ko-editable="image.src"
-                  hspace="0" border="0" vspace="0" width="534" data-ko-placeholder-height="280"
-                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=534%2C280" class="mobile-full"
-                  alt="" style="max-width: 534px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
-                  font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
-                  -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt;" /></a>
-            </td>
-          </tr>
-        </table>
-        </div>
-<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-      </td>
-    </tr>
-  </table>
-  <!-- imageBlock -->
 
   <!-- doubleImageBlock -->
   <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
