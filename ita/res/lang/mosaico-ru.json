@@ -198,5 +198,10 @@
   "Vkontakte": "Вконтакте",
   "Odnoklassniki": "Одноклассники",
   "Details": "Подробнее",
-  "Link Color": "Цвет ссылки"
+  "Link Color": "Цвет ссылки",
+  "Sidebar position": "Положение врезки",
+  "Sidebar Size": "Ширина врезки",
+  "Sidebar Background": "Фон врезки",
+  "Sidebar": "Врезка",
+  "Sidebar Link Color": "Цвет ссылок врезки"
 }
