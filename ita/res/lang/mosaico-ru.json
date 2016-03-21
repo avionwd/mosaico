@@ -203,5 +203,10 @@
   "Sidebar Size": "Ширина врезки",
   "Sidebar Background": "Фон врезки",
   "Sidebar": "Врезка",
-  "Sidebar Link Color": "Цвет ссылок врезки"
+  "Sidebar Link Color": "Цвет ссылок врезки",
+  "Sidebar Image": "Изображение во врезке",
+  "Sidebar Left + Text Block": "Блок врезка слева + текст",
+  "Sidebar Right + Text Block": "Блок врезка справа + текст",
+  "Sidebar Left + Text + Double Article Block": "Блок врезка слева + текст + 2 колонки",
+  "Sidebar Right + Text + Double Article Block": "Блок врезка справа + текст + 2 колонки"
 }
