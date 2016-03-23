@@ -277,14 +277,6 @@
           rightImage  rightLongText rightButtonLink;
           theme: contentTheme}
 
-      tripleArticleBlock_1_text_1 {
-          label: 1 + Text + 1 Columns Block;
-          properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle
-          leftImage  leftLongText leftButtonLink
-          middleImage  middleLongText middleButtonLink
-          rightImage  rightLongText rightButtonLink;
-          theme: contentTheme}
-
       quadArticleBlock {
           label: 4 Columns Block;
           properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle
@@ -296,11 +288,7 @@
       }
 
       logoBlock imageWidth { label: Image Size; widget: select; options: 166=Small|258=Medium|350=Big; variant:imageWidth;}
-      tripleLogoBlock imageWidth { label: Image Size; widget: select; options: 166=Small|258=Medium|350=Big; variant:imageWidth;}
-
-
       logoBlock { label: Logo Block; properties: image imageWidth=258; variant: imageWidth; theme: contentTheme}
-      tripleLogoBlock { label: Logo Block + Text; properties: image imageWidth=258; variant: imageWidth; theme: contentTheme}
 
       titleBlock { label: Title; theme: titleTheme}
 
@@ -327,8 +315,7 @@
       spacerBlock { label: Spacer Block;  theme: contentTheme}
 
       spacerBlock:preview,
-      logoBlock:preview,
-      tripleLogoBlock:preview { -ko-background-color: @[externalBackgroundColor] }
+      logoBlock:preview { -ko-background-color: @[externalBackgroundColor] }
 
       preheaderBlock:preview,
       hrBlock:preview,
@@ -340,7 +327,6 @@
       tripleArticleBlock_1_2:preview,
       tripleArticleBlock_2_1:preview,
       tripleArticleBlock_1_1_1:preview,
-      tripleArticleBlock_1_text_1:preview,
       quadArticleBlock:preview,
       titleBlock:preview,
       footerBlock:preview,
@@ -469,18 +455,6 @@
     [data-ko-block=quadArticleBlock] .long-text p:last-child { Margin-bottom: 0px; }
     [data-ko-block=quadArticleBlock] .long-text p:first-child { Margin-top: 0px; }
 
-    [data-ko-block=tripleLogoBlock] .links-color a,
-    [data-ko-block=tripleLogoBlock] .links-color a:link,
-    [data-ko-block=tripleLogoBlock] .links-color a:visited,
-    [data-ko-block=tripleLogoBlock] .links-color a:hover {
-      color: #3f3f3f;
-      -ko-color: @longTextStyle.linksColor;
-      text-decoration: underline;
-    }
-    [data-ko-block=tripleLogoBlock] .long-text p { Margin: 1em 0px; }
-    [data-ko-block=tripleLogoBlock] .long-text p:last-child { Margin-bottom: 0px; }
-    [data-ko-block=tripleLogoBlock] .long-text p:first-child { Margin-top: 0px; }
-
     [data-ko-block=tripleArticleBlock] .links-color a,
     [data-ko-block=tripleArticleBlock] .links-color a:link,
     [data-ko-block=tripleArticleBlock] .links-color a:visited,
@@ -528,18 +502,6 @@
     [data-ko-block=tripleArticleBlock_1_1_1] .long-text p { Margin: 1em 0px; }
     [data-ko-block=tripleArticleBlock_1_1_1] .long-text p:last-child { Margin-bottom: 0px; }
     [data-ko-block=tripleArticleBlock_1_1_1] .long-text p:first-child { Margin-top: 0px; }
-
-    [data-ko-block=tripleArticleBlock_1_text_1] .links-color a,
-    [data-ko-block=tripleArticleBlock_1_text_1] .links-color a:link,
-    [data-ko-block=tripleArticleBlock_1_text_1] .links-color a:visited,
-    [data-ko-block=tripleArticleBlock_1_text_1] .links-color a:hover {
-      color: #3f3f3f;
-      -ko-color: @longTextStyle.linksColor;
-      text-decoration: underline;
-    }
-    [data-ko-block=tripleArticleBlock_1_text_1] .long-text p { Margin: 1em 0px; }
-    [data-ko-block=tripleArticleBlock_1_text_1] .long-text p:last-child { Margin-bottom: 0px; }
-    [data-ko-block=tripleArticleBlock_1_text_1] .long-text p:first-child { Margin-top: 0px; }
 
     [data-ko-block=doubleArticleBlock] .links-color a,
     [data-ko-block=doubleArticleBlock] .links-color a:link, 
@@ -850,79 +812,6 @@
       </table>
       <!-- imageBlock -->
 
-      <!-- tripleLogoBlock -->
-      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="tripleLogoBlock">
-          <tr>
-              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-                  <div class="oldwebkit">
-                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
-                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-                          <tr>
-                              <td align="center" valign="top" class="mobile-row" style="font-size: 0">
-
-                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
-                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="147"  style="-ko-attr-width: @[(570 - 18 - imageWidth) / 2]"><![endif]-->
-                                  <div style="display:inline-block; max-width:147px; -ko-max-width: @[(570 - 18 - imageWidth) / 2]px; vertical-align:top; width:100%;" class="mobile-full">
-
-                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="147" style="width: 100%; -ko-attr-width:@[(570 - 18 - imageWidth) / 2]" align="left">
-                                          <tr>
-                                              <td align="left" style="padding-top: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                                                  data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                                              </td>
-                                          </tr>
-                                      </table>
-
-                                  </div><!--[if (gte mso 9)|(lte ie 8)]></td>
-                              <td align="left" valign="top" width="258" style="-ko-attr-width: @[imageWidth]">
-                                  <![endif]--><div style="display:inline-block; max-width:258px;  -ko-max-width: @[imageWidth]px; vertical-align:top; width:100%;" class="mobile-full">
-
-                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="258" style="width: 100%; -ko-attr-width: @[imageWidth]" align="left">
-                                      <tr>
-                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
-                                              <a data-ko-link="image.url">
-                                                  <img data-ko-editable="image.src" border="0" hspace="0" vspace="0" width="258" height="110"
-                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C110" class="mobile-full"
-                                                       alt="" style="vertical-align:top; width: 100%; max-width:258px; height: auto; -ko-attr-height: @imageHeight;  -ko-attr-width: @imageWidth; -ko-max-width: @[imageWidth]px;
-                              -ko-attr-alt: @image.alt" />
-                                              </a>
-                                          </td>
-                                      </tr>
-                                  </table>
-
-                              </div><!--[if (gte mso 9)|(lte ie 8)]></td>
-                              <td align="left" valign="top" width="147" style="-ko-attr-width: @[(570 - 18 - imageWidth) / 2]">
-                                  <![endif]--><div style="display:inline-block; max-width:147px; -ko-max-width: @[(570 - 18 - imageWidth) / 2]px; vertical-align:top; width:100%;" class="mobile-full">
-
-                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="147" style="width: 100%; -ko-attr-width: @[(570 - 18 - imageWidth) / 2]" align="right">
-                                      <tr>
-                                          <td align="left" style="padding-top: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                                              data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                                          </td>
-                                      </tr>
-                                  </table>
-
-                              </div>
-                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
-
-                              </td>
-                          </tr>
-                      </table>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-              </td>
-          </tr>
-      </table>
-      <!-- /tripleLogoBlock -->
-
       <!-- TitleBlock -->
       <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff"
              style="background-color: #ffffff; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="titleBlock">
@@ -1037,18 +926,7 @@
       </table>
       <!-- /hrBlock -->
 
-    <!-- spacerBlock -->
-    <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-           style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="spacerBlock">
-      <tr>
-        <td class="vb-outer" valign="top" align="center" bgcolor="#bfbfbf" height="24"
-            style="-ko-attr-height: @spacerSize; height: 24px; -ko-height: @[spacerSize]px; background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor;
-        -ko-attr-bgcolor: @externalBackgroundColor; font-size:1px; line-height: 1px;">&nbsp;</td>
-      </tr>
-    </table>
-    <!-- /spacerBlock -->
-
-    <!-- doubleArticleBlock -->
+      <!-- doubleArticleBlock -->
       <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
              style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="doubleArticleBlock">
           <tr>
@@ -2322,193 +2200,6 @@
       </table>
       <!-- /tripleArticleBlock_1_1_1 -->
 
-      <!-- tripleArticleBlock_1_text_1 -->
-      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="tripleArticleBlock_1_text_1">
-          <tr>
-              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-                  <div class="oldwebkit">
-                      <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" bgcolor="#ffffff"
-                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-                          <tr>
-                              <td align="center" valign="top" class="mobile-row" style="font-size: 0">
-
-                                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
-                                  <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="138"><![endif]-->
-                                  <div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
-
-                                      <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="left">
-                                          <tr data-ko-display="imageVisible">
-                                              <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
-                                                  <a data-ko-link="leftImage.url" href="">
-                                                      <img data-ko-editable="leftImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
-                                                           src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
-                                                           alt="" style="vertical-align:top; width: 100%; height: auto;
-                               -ko-attr-alt: @leftImage.alt" />
-                                                  </a>
-                                              </td>
-                                          </tr>
-                                          <tr>
-                                              <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                                                  data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                                              </td>
-                                          </tr>
-                                          <tr data-ko-display="buttonVisible">
-                                              <td valign="top">
-                                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
-                                                      <tr>
-                                                          <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
-                                              <span style="
-                                                    font-size: 13px;
-                                                    font-family: Arial, Helvetica, sans-serif;
-                                                    color: #3f3f3f;
-                                                    font-weight: normal;
-                                                    padding: 6px 18px;
-                                                    display: inline-block;
-                                                    background-color: #bfbfbf;
-                                                    border-radius: 4px;
-                                                    -ko-border-radius: @[buttonStyle.radius]px;
-                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
-                                                    -ko-background-color: @buttonStyle.buttonColor;
-                                                    -ko-font-size: @[buttonStyle.size]px;
-                                                    -ko-font-family: @buttonStyle.face;
-                                                    -ko-color: @buttonStyle.color; ">
-                                                  <a data-ko-editable="leftButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @leftButtonLink.url">
-                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
-                                                  </a>
-                                              </span>
-                                                          </td>
-                                                      </tr>
-                                                  </table>
-                                              </td>
-                                          </tr>
-                                      </table>
-
-                                  </div><!--[if (gte mso 9)|(lte ie 8)]></td>
-                              <td align="left" valign="top" width="276">
-                                  <![endif]--><div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full">
-
-                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="left">
-                                      <tr data-ko-display="titleVisible">
-                                          <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
-                          -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
-                         Title
-                          </span>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                                              data-ko-editable="middleLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                                              <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place.</p>
-                                              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                          </td>
-                                      </tr>
-                                      <tr data-ko-display="buttonVisible">
-                                          <td valign="top">
-                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
-                                                  <tr>
-                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
-                                              <span style="
-                                                    font-size: 13px;
-                                                    font-family: Arial, Helvetica, sans-serif;
-                                                    color: #3f3f3f;
-                                                    font-weight: normal;
-                                                    padding: 6px 18px;
-                                                    display: inline-block;
-                                                    background-color: #bfbfbf;
-                                                    border-radius: 4px;
-                                                    -ko-border-radius: @[buttonStyle.radius]px;
-                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
-                                                    -ko-background-color: @buttonStyle.buttonColor;
-                                                    -ko-font-size: @[buttonStyle.size]px;
-                                                    -ko-font-family: @buttonStyle.face;
-                                                    -ko-color: @buttonStyle.color; ">
-                                                  <a data-ko-editable="middleButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @middleButtonLink.url">
-                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
-                                                  </a>
-                                              </span>
-                                                      </td>
-                                                  </tr>
-                                              </table>
-                                          </td>
-                                      </tr>
-                                  </table>
-
-                              </div><!--[if (gte mso 9)|(lte ie 8)]></td>
-                              <td align="left" valign="top" width="138">
-                                  <![endif]--><div style="display:inline-block; max-width:138px; vertical-align:top; width:100%;" class="mobile-full">
-
-                                  <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="138" style="width: 100%" align="right">
-                                      <tr data-ko-display="imageVisible">
-                                          <td width="100%" valign="top" align="left" class="links-color" style="padding-bottom: 9px">
-                                              <a data-ko-link="rightImage.url">
-                                                  <img data-ko-editable="rightImage.src" border="0" hspace="0" vspace="0" width="120" height="80"
-                                                       src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=120%2C80" class="mobile-full"
-                                                       alt="" style="vertical-align:top; width: 100%; height: auto;
-                              -ko-attr-alt: @rightImage.alt" />
-                                              </a>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-                                              data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
-                                          </td>
-                                      </tr>
-                                      <tr data-ko-display="buttonVisible">
-                                          <td valign="top">
-                                              <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
-                                                  <tr>
-                                                      <td width="100%" valign="middle" style="text-align:left; -ko-text-align: @buttonStyle.align;">
-                                              <span style="
-                                                    font-size: 13px;
-                                                    font-family: Arial, Helvetica, sans-serif;
-                                                    color: #3f3f3f;
-                                                    font-weight: normal;
-                                                    padding: 6px 18px;
-                                                    display: inline-block;
-                                                    background-color: #bfbfbf;
-                                                    border-radius: 4px;
-                                                    -ko-border-radius: @[buttonStyle.radius]px;
-                                                    -ko-attr-bgcolor: @buttonStyle.buttonColor;
-                                                    -ko-background-color: @buttonStyle.buttonColor;
-                                                    -ko-font-size: @[buttonStyle.size]px;
-                                                    -ko-font-family: @buttonStyle.face;
-                                                    -ko-color: @buttonStyle.color; ">
-                                                  <a data-ko-editable="rightButtonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @buttonStyle.color; -ko-attr-href: @rightButtonLink.url">
-                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
-                                                  </a>
-                                              </span>
-                                                      </td>
-                                                  </tr>
-                                              </table>
-                                          </td>
-                                      </tr>
-                                  </table>
-
-                              </div>
-                                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-                                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
-
-                              </td>
-                          </tr>
-                      </table>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-              </td>
-          </tr>
-      </table>
-      <!-- /tripleArticleBlock_1_text_1 -->
-
       <!-- sideArticleBlock  -->
       <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
              style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="sideArticleBlock">
@@ -3602,327 +3293,392 @@
       </table>
       <!-- /sidebarRightDoubleArticleBlock -->
 
-    <!-- logoBlock -->
-    <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-           style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"
-           data-ko-block="logoBlock">
-      <tr>
-        <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-            style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
 
-          <!--[if (gte mso 9)|(lte ie 8)]>
-          <table align="center" border="0" cellspacing="0" cellpadding="0" width="570">
-            <tr>
-              <td align="center" valign="top"><![endif]-->
-          <div class="oldwebkit">
-            <table width="570" style="width: 100%; max-width: 570px" border="0" cellpadding="0" cellspacing="18"
-                   class="vb-container fullpad">
-              <tr>
-                <td valign="top" align="center">
 
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <table align="center" border="0" cellspacing="0" cellpadding="0" width="258"
-                         style="-ko-attr-width: @[imageWidth]">
-                    <tr>
-                      <td align="center" valign="top"><![endif]-->
-                  <div style="display:inline-block; max-width:258px; -ko-max-width: @[imageWidth]px; vertical-align:top; width:100%;"
-                       class="mobile-full">
+
+
+
+      <!-- ----------------------------------------------------------------------------------------------------- -->
+
+  <!-- logoBlock -->
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="logoBlock">
+    <tr>
+      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+        <div class="oldwebkit">
+        <table width="570" style="width: 100%; max-width: 570px" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad">
+          <tr>
+            <td valign="top" align="center">
+
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="258" style="-ko-attr-width: @[imageWidth]"><tr><td align="center" valign="top"><![endif]-->
+<div style="display:inline-block; max-width:258px; -ko-max-width: @[imageWidth]px; vertical-align:top; width:100%;" class="mobile-full">
                     <a data-ko-link="image.url" href="" style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #f3f3f3;
                       text-decoration: none; -ko-font-size: @[externalTextStyle.size]px;
                       -ko-font-family: @externalTextStyle.face; -ko-color: @externalTextStyle.color"><img
-                            data-ko-editable="image.src" width="258" data-ko-placeholder-height="150"
-                            style="-ko-attr-alt: @image.alt; width: 100%; max-width: 258px; -ko-attr-width: @imageWidth; -ko-max-width: @[imageWidth]px;"
-                            src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C150" vspace="0"
-                            hspace="0" border="0" alt=""/></a>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+                       data-ko-editable="image.src" width="258" data-ko-placeholder-height="150"
+                        style="-ko-attr-alt: @image.alt; width: 100%; max-width: 258px; -ko-attr-width: @imageWidth; -ko-max-width: @[imageWidth]px;"
+                        src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C150" vspace="0" hspace="0" border="0" alt="" /></a>
+</div>
+<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
 
-                </td>
-              </tr>
-            </table>
-          </div>
-          <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </table>
+        </div>
+<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
 
-        </td>
-      </tr>
-    </table>
-    <!-- /logoBlock  -->
+      </td>
+    </tr>
+  </table>
+  <!-- /logoBlock  -->
 
-    <!-- doubleImageBlock -->
-    <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
-    -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"
-           data-ko-block="doubleImageBlock">
-      <tr>
-        <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-            style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-          <!--[if (gte mso 9)|(lte ie 8)]>
-          <table align="center" border="0" cellspacing="0" cellpadding="0" width="570">
-            <tr>
-              <td align="center" valign="top"><![endif]-->
-          <div class="oldwebkit">
-            <table data-ko-display="gutterVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0"
-                   border="0" bgcolor="#ffffff" align="center"
-                   cellspacing="0"
-                   style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
-              <tr>
-                <td valign="top" align="center" class="mobile-row" style="font-size: 0">
+  <!-- doubleImageBlock -->
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
+    -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="doubleImageBlock">
+    <tr>
+      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+        <div class="oldwebkit">
+        <table data-ko-display="gutterVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
+          cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
+          <tr>
+            <td valign="top" align="center" class="mobile-row" style="font-size: 0">
 
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <table align="center" border="0" cellspacing="0" cellpadding="0" width="570">
-                    <tr><![endif]-->
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <td align="left" valign="top" width="285"><![endif]-->
-                  <div style="display:inline-block; max-width:285px; vertical-align:top; width:100%; width:100%; "
-                       class="mobile-full">
-                    <a data-ko-link="leftImage.url" href="" style="text-decoration: none;"><img
-                            data-ko-editable="leftImage.src"
-                            hspace="0" align="left" border="0" vspace="0" width="285" height="180" class="mobile-full"
-                            src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=285%2C180"
-                            alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="285"><![endif]--> 
+<div style="display:inline-block; max-width:285px; vertical-align:top; width:100%; width:100%; " class="mobile-full"> 
+              <a data-ko-link="leftImage.url" href="" style="text-decoration: none;"><img data-ko-editable="leftImage.src"
+                  hspace="0" align="left" border="0" vspace="0" width="285" height="180" class="mobile-full"
+                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=285%2C180"
+                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @leftImage.alt;"/></a>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td>
-                <td align="left" valign="top" width="285">
-                  <![endif]-->
-                  <div style="display:inline-block; max-width:285px; vertical-align:top; width:100%; width:100%; "
-                       class="mobile-full">
-                    <a data-ko-link="rightImage.url" href="" style="text-decoration: none;"><img
-                            data-ko-editable="rightImage.src"
-                            hspace="0" align="right" border="0" vspace="0" width="285" height="180" class="mobile-full"
-                            src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=285%2C180"
-                            alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @leftImage.alt;" /></a>
+</div><!--[if (gte mso 9)|(lte ie 8)]></td>
+<td align="left" valign="top" width="285">
+<![endif]--><div style="display:inline-block; max-width:285px; vertical-align:top; width:100%; width:100%; " class="mobile-full"> 
+              <a data-ko-link="rightImage.url" href="" style="text-decoration: none;"><img data-ko-editable="rightImage.src"
+                  hspace="0" align="right" border="0" vspace="0" width="285" height="180" class="mobile-full"
+                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=285%2C180"
+                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @rightImage.alt;"/></a>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
-                </td>
-              </tr>
-            </table>
-            <table data-ko-display="gutterVisible" width="570" class="vb-row fullpad" border="0" cellpadding="0"
-                   cellspacing="9" bgcolor="#ffffff"
-                   style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor; display: none;">
-              <tr>
-                <td align="center" valign="top" bgcolor="#ffffff"
-                    style="background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor; font-size: 0">
+                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @rightImage.alt;" /></a>
+</div>
+<!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+            </td>
+          </tr>
+        </table>
+        <table data-ko-display="gutterVisible" width="570" class="vb-row fullpad" border="0" cellpadding="0" cellspacing="9" bgcolor="#ffffff" 
+            style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor; display: none;">
+          <tr>
+            <td align="center" valign="top" bgcolor="#ffffff" style="background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor; font-size: 0">
 
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <table align="center" border="0" cellspacing="0" cellpadding="0" width="552">
-                    <tr><![endif]-->
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <td align="left" valign="top" width="276"><![endif]-->
-                  <div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;"
-                       class="mobile-full">
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="276"><![endif]--> 
+<div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full"> 
 
-                    <table class="vb-content" width="276" style="width: 100%" border="0" cellpadding="0" cellspacing="9"
-                           align="left">
-                      <tr>
-                        <td valign="top">
-                          <a data-ko-link="leftImage.url" href="" style="text-decoration: none;">
-                            <img data-ko-editable="leftImage.src"
-                                 hspace="0" align="left" border="0" vspace="0" width="258" height="180"
-                                 src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C180"
-                                 class="mobile-full"
-                                 alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+              <table class="vb-content" width="276" style="width: 100%" border="0" cellpadding="0" cellspacing="9" align="left">
+                <tr>
+                  <td valign="top">
+                    <a data-ko-link="leftImage.url" href="" style="text-decoration: none;">
+                      <img data-ko-editable="leftImage.src"
+                        hspace="0" align="left" border="0" vspace="0" width="258" height="180"
+                        src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C180" class="mobile-full"
+                        alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
                         font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                        -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @leftImage.alt;"/></a>
-                        </td>
-                      </tr>
-                    </table>
+                        -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @leftImage.alt;" /></a>
+                  </td>
+                </tr>
+              </table>
 
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td>
-                <td align="left" valign="top" width="276">
-                  <![endif]-->
-                  <div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;"
-                       class="mobile-full">
+</div><!--[if (gte mso 9)|(lte ie 8)]></td>
+<td align="left" valign="top" width="276">
+<![endif]--><div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full"> 
 
-                    <table class="vb-content" width="276" style="width: 100%" border="0" cellpadding="0" cellspacing="9"
-                           align="right">
-                      <tr>
-                        <td valign="top">
-                          <a data-ko-link="rightImage.url" href="" style="text-decoration: none;"><img
-                                  data-ko-editable="rightImage.src"
-                                  hspace="0" align="right" border="0" vspace="0" width="258" height="180"
-                                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C180"
-                                  class="mobile-full"
-                                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+              <table class="vb-content" width="276" style="width: 100%" border="0" cellpadding="0" cellspacing="9" align="right">
+                <tr>
+                  <td valign="top">
+                    <a data-ko-link="rightImage.url" href="" style="text-decoration: none;"><img data-ko-editable="rightImage.src"
+                        hspace="0" align="right" border="0" vspace="0" width="258" height="180"
+                        src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=258%2C180" class="mobile-full"
+                        alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
                         font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                        -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @rightImage.alt;"/></a>
-                        </td>
-                      </tr>
-                    </table>
+                        -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @rightImage.alt;" /></a>
+                  </td>
+                </tr>
+              </table>
 
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+</div>
+<!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
 
-                </td>
-              </tr>
-            </table>
-          </div>
-          <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-        </td>
-      </tr>
-    </table>
-    <!-- /doubleImageBlock -->
+            </td>
+          </tr>
+        </table>
+        </div>
+<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+  <!-- /doubleImageBlock -->
 
-    <!--  tripleImageBlock -->
-    <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
-    -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"
-           data-ko-block="tripleImageBlock">
-      <tr>
-        <td class="vb-outer" valign="top" align="center" style="">
-          <!--[if (gte mso 9)|(lte ie 8)]>
-          <table align="center" border="0" cellspacing="0" cellpadding="0" width="570">
-            <tr>
-              <td align="center" valign="top"><![endif]-->
-          <div class="oldwebkit">
-            <table data-ko-display="gutterVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0"
-                   border="0" bgcolor="#ffffff" align="center"
-                   cellspacing="0"
-                   style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
-              <tr>
-                <td valign="top" align="center" class="mobile-row" style="font-size: 0">
+  <!--  tripleImageBlock -->
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
+    -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="tripleImageBlock">
+    <tr>
+      <td class="vb-outer" valign="top" align="center" style="">
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+        <div class="oldwebkit">
+        <table data-ko-display="gutterVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
+          cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
+          <tr>
+            <td valign="top" align="center" class="mobile-row" style="font-size: 0">
 
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <table align="center" border="0" cellspacing="0" cellpadding="0" width="570">
-                    <tr><![endif]-->
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <td align="left" valign="top" width="190"><![endif]-->
-                  <div style="display:inline-block; max-width:190px; vertical-align:top; width:100%; "
-                       class="mobile-full">
-                    <a data-ko-link="leftImage.url" href="" style="text-decoration: none;"><img
-                            data-ko-editable="leftImage.src"
-                            hspace="0" align="left" border="0" vspace="0" width="190" height="160" class="mobile-full"
-                            src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=190%2C160"
-                            alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="190"><![endif]--> 
+<div style="display:inline-block; max-width:190px; vertical-align:top; width:100%; " class="mobile-full"> 
+              <a data-ko-link="leftImage.url" href="" style="text-decoration: none;"><img data-ko-editable="leftImage.src"
+                  hspace="0" align="left" border="0" vspace="0" width="190" height="160" class="mobile-full"
+                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=190%2C160"
+                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @leftImage.alt;"/></a>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td>
-                <td align="left" valign="top" width="190">
-                  <![endif]-->
-                  <div style="display:inline-block; max-width:190px; vertical-align:top; width:100%; "
-                       class="mobile-full">
-                    <a data-ko-link="middleImage.url" href="" style="text-decoration: none;"><img
-                            data-ko-editable="middleImage.src"
-                            hspace="0" align="left" border="0" vspace="0" width="190" height="160" class="mobile-full"
-                            src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=190%2C160"
-                            alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @leftImage.alt;" /></a>
+</div><!--[if (gte mso 9)|(lte ie 8)]></td>
+<td align="left" valign="top" width="190">
+<![endif]--><div style="display:inline-block; max-width:190px; vertical-align:top; width:100%; " class="mobile-full"> 
+              <a data-ko-link="middleImage.url" href="" style="text-decoration: none;"><img data-ko-editable="middleImage.src"
+                  hspace="0" align="left" border="0" vspace="0" width="190" height="160" class="mobile-full"
+                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=190%2C160"
+                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @middleImage.alt;"/></a>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td>
-                <td align="left" valign="top" width="190">
-                  <![endif]-->
-                  <div style="display:inline-block; max-width:190px; vertical-align:top; width:100%; "
-                       class="mobile-full">
-                    <a data-ko-link="rightImage.url" href="" style="text-decoration: none;"><img
-                            data-ko-editable="rightImage.src"
-                            hspace="0" align="right" border="0" vspace="0" width="190" height="160" class="mobile-full"
-                            src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=190%2C160"
-                            alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @middleImage.alt;" /></a>
+</div><!--[if (gte mso 9)|(lte ie 8)]></td>
+<td align="left" valign="top" width="190">
+<![endif]--><div style="display:inline-block; max-width:190px; vertical-align:top; width:100%; " class="mobile-full"> 
+              <a data-ko-link="rightImage.url" href="" style="text-decoration: none;"><img data-ko-editable="rightImage.src"
+                  hspace="0" align="right" border="0" vspace="0" width="190" height="160" class="mobile-full"
+                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=190%2C160"
+                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @rightImage.alt;"/></a>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
-                </td>
-              </tr>
-            </table>
-            <table data-ko-display="gutterVisible" width="570" border="0" cellpadding="0" cellspacing="9"
-                   bgcolor="#ffffff" class="vb-row fullpad"
-                   style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor; display: none;">
-              <tr>
-                <td align="center" valign="top" bgcolor="#ffffff"
-                    style="font-size: 0; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor">
+                  -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @rightImage.alt;" /></a>
+</div>
+<!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+            </td>
+          </tr>
+        </table>
+        <table data-ko-display="gutterVisible" width="570" border="0" cellpadding="0" cellspacing="9" bgcolor="#ffffff" class="vb-row fullpad"
+          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor; display: none;">
+          <tr>
+            <td align="center" valign="top" bgcolor="#ffffff" style="font-size: 0; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor">
 
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <table align="center" border="0" cellspacing="0" cellpadding="0" width="552">
-                    <tr><![endif]-->
-                  <!--[if (gte mso 9)|(lte ie 8)]>
-                  <td align="left" valign="top" width="184"><![endif]-->
-                  <div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;"
-                       class="mobile-full">
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="184"><![endif]--> 
+<div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full"> 
 
-                    <table class="vb-content" width="184" style="width: 100%" border="0" cellpadding="0" cellspacing="9"
-                           align="left">
-                      <tr>
-                        <td valign="top">
-                          <a data-ko-link="leftImage.url" href="" style="text-decoration: none;"><img
-                                  data-ko-editable="leftImage.src"
-                                  hspace="0" align="left" border="0" vspace="0" width="166" height="160"
-                                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C160"
-                                  class="mobile-full"
-                                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+              <table class="vb-content" width="184" style="width: 100%" border="0" cellpadding="0" cellspacing="9" align="left">
+                <tr>
+                  <td valign="top">
+                    <a data-ko-link="leftImage.url" href="" style="text-decoration: none;"><img data-ko-editable="leftImage.src"
+                      hspace="0" align="left" border="0" vspace="0" width="166" height="160"
+                      src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C160" class="mobile-full"
+                      alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
                       font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                      -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @leftImage.alt;"/></a>
+                      -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @leftImage.alt;" /></a>
+                  </td>
+                </tr>
+              </table>
+
+</div><!--[if (gte mso 9)|(lte ie 8)]></td>
+<td align="left" valign="top" width="184">
+<![endif]--><div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full"> 
+
+              <table class="vb-content" width="184" style="width: 100%" border="0" cellpadding="0" cellspacing="9" align="left">
+                <tr>
+                  <td valign="top">
+                    <a data-ko-link="middleImage.url" href="" style="text-decoration: none"><img data-ko-editable="middleImage.src"
+                      hspace="0" align="left" border="0" vspace="0" width="166" height="160"
+                      src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C160" class="mobile-full"
+                      alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+                      font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
+                      -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @middleImage.alt;" /></a>
+                  </td>
+                </tr>
+              </table>
+
+</div><!--[if (gte mso 9)|(lte ie 8)]></td>
+<td align="left" valign="top" width="184">
+<![endif]--><div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;" class="mobile-full"> 
+
+              <table class="vb-content" width="184" style="width: 100%" border="0" cellpadding="0" cellspacing="9" align="right">
+                <tr>
+                  <td valign="top">
+                    <a data-ko-link="rightImage.url" href="" style="text-decoration: none"><img data-ko-editable="rightImage.src"
+                      hspace="0" align="right" border="0" vspace="0" width="166" height="160"
+                      src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C160" class="mobile-full"
+                      alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+                      font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
+                      -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @rightImage.alt;" /></a>
+                  </td>
+                </tr>
+              </table>
+
+</div>
+<!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+            </td>
+          </tr>
+        </table>
+        </div>
+<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+  <!-- /tripleImageBlock -->
+
+  <!-- spacerBlock -->
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="spacerBlock">
+    <tr>
+      <td class="vb-outer" valign="top" align="center" bgcolor="#bfbfbf" height="24"
+        style="-ko-attr-height: @spacerSize; height: 24px; -ko-height: @[spacerSize]px; background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor;
+        -ko-attr-bgcolor: @externalBackgroundColor; font-size:1px; line-height: 1px;">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- /spacerBlock -->
+
+  <!-- socialBlock -->
+  <table width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#3f3f3f"
+    style="background-color: #3f3f3f; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor"  data-ko-block="socialBlock">
+    <tr>
+      <td align="center" valign="top" bgcolor="#3f3f3f" style="background-color: #3f3f3f;
+        -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+        <div class="oldwebkit">
+        <table width="570" style="width: 100%; max-width: 570px" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" align="center">
+          <tr>
+            <td valign="top"  align="center" style="font-size: 0;">
+
+<!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="276"><![endif]--> 
+<div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full"> 
+
+                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="left">
+                      <tr>
+                        <td valign="middle" align="left"
+                          style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #919191; text-align:left;
+                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                          data-ko-editable="longText" class="long-text links-color mobile-textcenter">
+                          <p>Address and <a href="">Contacts</a></p>
                         </td>
                       </tr>
                     </table>
 
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td>
-                <td align="left" valign="top" width="184">
-                  <![endif]-->
-                  <div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;"
-                       class="mobile-full">
+</div><!--[if (gte mso 9)|(lte ie 8)]></td>
+<td align="left" valign="top" width="276">
+<![endif]--><div style="display:inline-block; max-width:276px; vertical-align:top; width:100%;" class="mobile-full"> 
 
-                    <table class="vb-content" width="184" style="width: 100%" border="0" cellpadding="0" cellspacing="9"
-                           align="left">
+                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="right">
                       <tr>
-                        <td valign="top">
-                          <a data-ko-link="middleImage.url" href="" style="text-decoration: none"><img
-                                  data-ko-editable="middleImage.src"
-                                  hspace="0" align="left" border="0" vspace="0" width="166" height="160"
-                                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C160"
-                                  class="mobile-full"
-                                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
-                      font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                      -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @middleImage.alt;"/></a>
+                        <td align="right" valign="middle" class="links-color socialLinks mobile-textcenter" data-ko-display="socialIconType eq 'colors'">
+                          <span data-ko-display="fbVisible" data-ko-wrap="false">&nbsp;</span>
+                          <a data-ko-display="fbVisible" href="" style="-ko-attr-href: @fbUrl">
+                            <img src="img/social_def/facebook_ok.png" alt="Facebook" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="twVisible" data-ko-wrap="false">&nbsp;</span>
+                          <a data-ko-display="twVisible" href="" style="-ko-attr-href: @twUrl">
+                            <img src="img/social_def/twitter_ok.png" alt="Twitter" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="ggVisible" data-ko-wrap="false">&nbsp;</span>
+                          <a data-ko-display="ggVisible" href="" style="-ko-attr-href: @ggUrl">
+                            <img src="img/social_def/google+_ok.png" alt="Google+" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="webVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="webVisible" href="" style="-ko-attr-href: @webUrl; display: none">
+                            <img src="img/social_def/web_ok.png" alt="Web" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="inVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="inVisible" href="" style="-ko-attr-href: @inUrl; display: none">
+                            <img src="img/social_def/linkedin_ok.png" alt="Linkedin" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="flVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="flVisible" href="" style="-ko-attr-href: @flUrl; display: none">
+                            <img src="img/social_def/flickr_ok.png" alt="Flickr" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="viVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="viVisible" href="" style="-ko-attr-href: @viUrl; display: none">
+                            <img src="img/social_def/vimeo_ok.png" alt="Vimeo" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="instVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="instVisible" href="" style="-ko-attr-href: @instUrl; display: none">
+                            <img src="img/social_def/instagram_ok.png" alt="Instagram" border="0"  class="socialIcon" />
+                          </a>
+                          <span data-ko-display="youVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="youVisible" href="" style="-ko-attr-href: @youUrl; display: none">
+                            <img src="img/social_def/youtube_ok.png" alt="Youtube" border="0" class="socialIcon" />
+                          </a>
+                        </td>
+                        <td align="right" valign="middle" class="links-color socialLinks mobile-textcenter" data-ko-display="socialIconType eq 'bw'"
+                          style="display: none">
+                          <span data-ko-display="fbVisible" data-ko-wrap="false">&nbsp;</span>
+                          <a data-ko-display="fbVisible" href="" style="-ko-attr-href: @fbUrl">
+                            <img src="img/social_def/facebook_bw_ok.png" alt="Facebook" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="twVisible" data-ko-wrap="false">&nbsp;</span>
+                          <a data-ko-display="twVisible" href="" style="-ko-attr-href: @twUrl">
+                            <img src="img/social_def/twitter_bw_ok.png" alt="Twitter" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="ggVisible" data-ko-wrap="false">&nbsp;</span>
+                          <a data-ko-display="ggVisible" href="" style="-ko-attr-href: @ggUrl">
+                            <img src="img/social_def/google+_bw_ok.png" alt="Google+" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="webVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="webVisible" href="" style="-ko-attr-href: @webUrl; display: none">
+                            <img src="img/social_def/web_bw_ok.png" alt="Web" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="inVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="inVisible" href="" style="-ko-attr-href: @inUrl; display: none">
+                            <img src="img/social_def/linkedin_bw_ok.png" alt="Linkedin" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="flVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="flVisible" href="" style="-ko-attr-href: @flUrl; display: none">
+                            <img src="img/social_def/flickr_bw_ok.png" alt="Flickr" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="viVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="viVisible" href="" style="-ko-attr-href: @viUrl; display: none">
+                            <img src="img/social_def/vimeo_bw_ok.png" alt="Vimeo" border="0" class="socialIcon" />
+                          </a>
+                          <span data-ko-display="instVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="instVisible" href="" style="-ko-attr-href: @instUrl; display: none">
+                            <img src="img/social_def/instagram_bw_ok.png" alt="Instagram" border="0"  class="socialIcon" />
+                          </a>
+                          <span data-ko-display="youVisible" data-ko-wrap="false" style="display: none">&nbsp;</span>
+                          <a data-ko-display="youVisible" href="" style="-ko-attr-href: @youUrl; display: none">
+                            <img src="img/social_def/youtube_bw_ok.png" alt="Youtube" border="0" class="socialIcon" />
+                          </a>
                         </td>
                       </tr>
                     </table>
 
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td>
-                <td align="left" valign="top" width="184">
-                  <![endif]-->
-                  <div style="display:inline-block; max-width:184px; vertical-align:top; width:100%;"
-                       class="mobile-full">
+</div>
+<!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+<!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
 
-                    <table class="vb-content" width="184" style="width: 100%" border="0" cellpadding="0" cellspacing="9"
-                           align="right">
-                      <tr>
-                        <td valign="top">
-                          <a data-ko-link="rightImage.url" href="" style="text-decoration: none"><img
-                                  data-ko-editable="rightImage.src"
-                                  hspace="0" align="right" border="0" vspace="0" width="166" height="160"
-                                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=166%2C160"
-                                  class="mobile-full"
-                                  alt="" style="display: block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
-                      font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face;
-                      -ko-color: @longTextStyle.color; -ko-attr-height: @imageHeight; -ko-attr-alt: @rightImage.alt;"/></a>
-                        </td>
-                      </tr>
-                    </table>
-
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
-                  <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
-
-                </td>
-              </tr>
-            </table>
-          </div>
-          <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-        </td>
-      </tr>
-    </table>
-    <!-- /tripleImageBlock -->
-
+            </td>
+          </tr>
+        </table>
+        </div>
+<!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+  <!-- /socialBlock -->
+   
   </div>
 
   <!-- footerBlock -->
@@ -4096,7 +3852,7 @@
           <table width="570" style="width: 100%; max-width: 570px" border="0" cellpadding="0" cellspacing="9" class="vb-container halfpad" align="center">
             <tr>
               <td style="text-align: center;">
-                <a style="text-decoration: underline; color: #ffffff; text-align: center; font-size: 11px;
+                <a style="text-decoration: underline; color: #ffffff; text-align: center; font-size: 13px;
                 font-weight: normal; font-family: Arial, Helvetica, sans-serif;
                 -ko-text-decoration: @linkUnsubscribeStyle.decoration; -ko-color: @linkUnsubscribeStyle.color; -ko-font-size: @[linkUnsubscribeStyle.size]px; -ko-font-family: @linkUnsubscribeStyle.face" href="[unsubscribe_link]">
                   <span data-bind="text: $root.ut('template', 'Unsubscribe')">Unsubscribe</span>

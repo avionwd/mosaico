@@ -43,14 +43,6 @@
 
 
 # Что изменено в коде редактора
-
-## Атрибуты логотипа
-
- - файл изображения логотипа `logoPath`
- - альтернативный текст `logoAlt`
- - адрес ссылки `logoUrl`
- 
- Атрибуты логотипа определяются в файле `\src\js\viewmodel.js` (необходима последующая сборка `grunt build`)
  
 ## Сохранение *Iterios template*
  
@@ -114,6 +106,46 @@
 
 Кроме того, в `json` файл перевода добавлены свойства для перевода дефиниций шаблона.
 
+
+## Локализация TinyMCE
+
+В код `Mosaico` добавлен установочный параметр `tinymceLanguage`, который позволяет установить:
+ - язык локализации текстового редактора `TinyMCE`
+ - путь к языковому файлу текстового редактора `TinyMCE`
+ 
+Для локализации текстового редактора `TinyMCE` необходимо:
+ 
+ 1. Загрузить нужный [файл локализации](http://archive.tinymce.com/i18n/) 
+>Предпочтительно загрузить файл локализации в папку `res/lang/tinymce` и затем выполнить `grunt build`, чтобы файлы из папки `res` скопировались в папку `dist`
+ 2. Добавить параметр tinymceLanguage` в объект инициализации `Mosaico`:
+ 
+ ```
+ var ok = Mosaico.init({
+     tinymceLanguage: {
+         language: 'ru',
+         language_url: '/mosaico/dist/lang/tinymce/ru.js'
+     },
+     // ... остальные параметры инициализации
+ }, plugins);
+ ```
+ 
+ Можно также установить локализацию `TinyMCE` более громоздким способом, без использования параметра `tinymceLanguage`:
+ 
+ ```
+ var ok = Mosaico.init({
+     tinymceConfig: {
+         language: 'ru',
+         language_url: '/mosaico/dist/lang/tinymce/ru.js'
+     },
+     tinymceConfigFull: {
+         toolbar1: 'bold italic forecolor backcolor hr styleselect removeformat | link unlink | pastetext code',
+         plugins: ["link hr paste lists textcolor code"],
+         language: 'ru',
+         language_url: '/mosaico/dist/lang/tinymce/ru.js'
+     },
+     // ... остальные параметры инициализации
+ }, plugins);
+ ```
  
 # Изображения
  
