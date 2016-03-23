@@ -51,6 +51,8 @@ var applyBindingOptions = function (options, ko) {
     };
 
     // pushes custom tinymce configurations from options to the binding
+    if (options && options.tinymceLanguage)
+        ko.bindingHandlers.wysiwyg.languageOptions = options.tinymceLanguage;
     if (options && options.tinymceConfig)
         ko.bindingHandlers.wysiwyg.standardOptions = options.tinymceConfig;
     if (options && options.tinymceConfigFull)

@@ -168,6 +168,7 @@ ko.virtualElements.allowedBindings['wysiwygImg'] = true;
 // also, maybe we should use the "raw" only for the "before SetContent" and instead read the "non-raw" content (the raw content sometimes have data- attributes and too many ending <br> in the code)
 ko.bindingHandlers.wysiwyg = {
   currentIndex: 0,
+  languageOptions: {},
   standardOptions: {},
   fullOptions: {
     toolbar1: 'bold italic forecolor backcolor hr styleselect removeformat | link unlink | pastetext code',
@@ -215,7 +216,7 @@ ko.bindingHandlers.wysiwyg = {
       // we have to disable preview_styles otherwise tinymce push inline every style he things will be applied and this makes the style menu to inherit color/font-family and more.
       preview_styles: false,
       paste_as_text: true,
-      language: 'en',
+      //language: 'en',
       schema: "html5",
       extended_valid_elements: 'strong/b,em/i,*[*]',
       menubar: false,
@@ -262,6 +263,7 @@ ko.bindingHandlers.wysiwyg = {
       }
     };
 
+    ko.utils.extend(options, ko.bindingHandlers.wysiwyg.languageOptions);
     ko.utils.extend(options, ko.bindingHandlers.wysiwyg.standardOptions);
     if (fullEditor) ko.utils.extend(options, ko.bindingHandlers.wysiwyg.fullOptions);
 
