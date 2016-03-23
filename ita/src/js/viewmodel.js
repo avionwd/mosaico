@@ -143,7 +143,7 @@ function initializeEditor(content, blockDefs, thumbPathConverter, galleryUrl) {
     contentListeners: ko.observable(0),
     
     logoPath: 'mosaico/dist/img/iterios32.png',
-    logoUrl: '/tpl',
+    logoUrl: '.',
     logoAlt: 'mosaico'
   };
 
