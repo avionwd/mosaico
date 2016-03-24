@@ -50,44 +50,49 @@ var itrsActions = function (md, emailProcessorBackend) {
              html = viewModel.exportHTML();
              */
 
-            console.log('HTML ======================================================');
-            console.log(viewModel.exportHTML());
-            console.log('===========================================================');
+            $('#testSendModal').modal();
+            $('.ui-tooltip').remove();
 
-            /*
-             var email = global.localStorage.getItem("testemail");
-             if (email === null || email == 'null') email = viewModel.t('Insert here the recipient email address');
-             email = global.prompt(viewModel.t("Test email address"), email);
-             if (email.match(/@/)) {
+            $('#testSendForm').submit(function (e) {
+                e.preventDefault();
 
-             global.localStorage.setItem("testemail", email);
-             console.log("TODO testing...", email);
-             var postUrl = emailProcessorBackend ? emailProcessorBackend : '/dl/';
-             var post = $.post(postUrl, {
-             action: 'email',
-             rcpt: email,
-             subject: "[test] " + mdkey + " - " + mdname,
-             html: viewModel.exportHTML()
-             }, null, 'html');
-             post.fail(function() {
-             console.log("fail", arguments);
-             viewModel.notifier.error(viewModel.t('Unexpected error talking to server: contact us!'));
-             });
-             post.success(function() {
-             console.log("success", arguments);
-             viewModel.notifier.success(viewModel.t("Test email sent..."));
-             });
-             post.always(function() {
-             testCmd.enabled(true);
-             });
-             } else {
-             global.alert(viewModel.t('Invalid email address'));
-             testCmd.enabled(true);
-             }
-             */
+                var email = $.trim($('#testSendEmail').val());
 
+                if (!email) return;
+
+                $('#testSendModal').modal('hide');
+                $.ajax('/send', {
+                    data: {
+                        email: email,
+                        html: viewModel.exportHTML()
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        if (response.status) {
+                            viewModel.notifier.success(response.message);
+                        } else {
+                            var message = response.message || viewModel.ut('template', 'Test send Error');
+                            viewModel.notifier.error(message);
+                        }
+                    },
+                    error: function (response) {
+                        viewModel.notifier.error(viewModel.ut('template', 'Test send Error'));
+                    },
+                    complete: function() {
+                        testCmd.enabled(true);
+                    }
+                });
+            });
+
+
+
+
+            //console.log('HTML ======================================================');
+            //console.log(viewModel.exportHTML());
+            //console.log('===========================================================');
             // todo this enable must be in the test mailing promise
-            testCmd.enabled(true);
 
         };
         var downloadCmd = {
@@ -117,7 +122,6 @@ var itrsActions = function (md, emailProcessorBackend) {
                 type: 'POST',
                 dataType: 'json',
                 success: function (response) {
-                    console.log(response);
                     if (response.status) {
                         viewModel.notifier.success(response.message);
                     } else {

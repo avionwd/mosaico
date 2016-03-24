@@ -214,5 +214,11 @@
   "Sidebar Left + Text + Double Article Block": "Блок врезка слева + текст + 2 колонки",
   "Sidebar Right + Text + Double Article Block": "Блок врезка справа + текст + 2 колонки",
 
-  "Template save Error": "Ошибка при сохранении шаблона"
+  "Template save Error": "Ошибка при сохранении шаблона",
+  "Test send Error": "Ошибка при тестовой отправке письма",
+
+  "Test send E-mail": "Тестовая отправка e-mail",
+  "Enter Test send E-mail": "Введите e-mail для тестовой отправки",
+  "Close": "Закрыть",
+  "Send": "Отправить"
 }
