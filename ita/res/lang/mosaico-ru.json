@@ -2,6 +2,7 @@
   "Download": "Загрузка",
   "Test": "Тест",
   "Save": "Сохранить",
+  "Save and exit": "Сохранить и закрыть",
   "Downloading...": "Загрузка...",
   "Invalid email address": "Неверный email адрес",
   "Test email sent...": "Отправляется тестовый email...",
@@ -28,6 +29,7 @@
   "Show preview and send test": "Показать результат и отправить тестовое сообщение",
   "Download template": "Скачать шаблон",
   "Save template": "Сохранить шаблон",
+  "Save template and exit": "Сохранить шаблон и закрыть редактор",
   "Saved model is obsolete": "Сохраненная модель устарела",
   "<p>The saved model has been created with a previous, non completely compatible version, of the template</p><p>Some content or style in the model <b>COULD BE LOST</b> if you will <b>save</b></p><p>Contact us for more informations!</p>": "<p>Сохраненная модель создана с помощью несовместимой версии шаблона</p><p>Некоторое содержимое и стили при сохранении <b>БУДУТ ПОТЕРЯНЫ</b>!</p>",
   "Blocks": "Блоки",
@@ -149,7 +151,7 @@
   "Frame Style": "Стиль рамки",
   "Preheader": "Заголовок страницы",
   "Page": "Страница",
-  "Unsubscribe": "Отписаться",
+  "Unsubscribe": "отписаться",
   "Website": "Веб-сайт",
   "Facebook Link": "Ссылка на Facebook",
   "Twitter Link": "Ссылка на Twitter",
@@ -174,8 +176,10 @@
   "1 + 2 Columns Block": "Блок в 1 + 2 колонки",
   "2 + 1 Columns Block": "Блок в 2 + 1 колонки",
   "1 + 1 + 1 Columns Block": "Блок в 1 + 1 + 1 колонки",
+  "1 + Text + 1 Columns Block": "Блок в 1 + текст + 1 колонки",
   "4 Columns Block": "Блок в 4 колонки",
   "Logo Block": "Блок Логотип",
+  "Logo Block + Text": "Блок Логотип с текстом",
   "Two Image Gallery Block": "Блок Галерея 2 изображения",
   "Three Image Gallery Block": "Блок Галерея 3 изображения",
   "Button Block": "Блок Кнопка",
@@ -208,5 +212,7 @@
   "Sidebar Left + Text Block": "Блок врезка слева + текст",
   "Sidebar Right + Text Block": "Блок врезка справа + текст",
   "Sidebar Left + Text + Double Article Block": "Блок врезка слева + текст + 2 колонки",
-  "Sidebar Right + Text + Double Article Block": "Блок врезка справа + текст + 2 колонки"
+  "Sidebar Right + Text + Double Article Block": "Блок врезка справа + текст + 2 колонки",
+
+  "Template save Error": "Ошибка при сохранении шаблона"
 }
