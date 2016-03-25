@@ -35,13 +35,25 @@ var applyBindingOptions = function (options, ko) {
         console.log('Convert URL ', src);
 
         var imgProcessorBackend = options.imgProcessorBackend ? options.imgProcessorBackend : './upload';
+
+        console.log('=======================',imgProcessorBackend);
+
         var backEndMatch = imgProcessorBackend.match(/^(https?:\/\/[^\/]*\/).*$/);
         var srcMatch = src.match(/^(https?:\/\/[^\/]*\/).*$/);
-        if (backEndMatch === null || (srcMatch !== null && backEndMatch[1] == srcMatch[1])) {
+
+        console.log('backEndMatch: ', backEndMatch);
+        console.log('srcMatch: ', srcMatch);
+
+
+
+
+        //if (backEndMatch === null || (srcMatch !== null && backEndMatch[1] == srcMatch[1])) {
+        if (backEndMatch === null || srcMatch[1] == 'https://static.iterios.com/') {
             return imgProcessorBackend + "?src=" + encodeURIComponent(src) + "&method=" + encodeURIComponent(method) + "&params=" + encodeURIComponent(width + "," + height);
         } else {
             console.log("Cannot apply backend image resizing to non-local resources ", src, method, width, height, backEndMatch, srcMatch);
             return src + "?method=" + method + "&width=" + width + (height !== null ? "&height=" + height : '');
+            //return src;
         }
     };
 
