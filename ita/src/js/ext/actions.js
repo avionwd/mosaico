@@ -53,7 +53,7 @@ var itrsActions = function (md, emailProcessorBackend) {
             $('#testSendModal').modal();
             $('.ui-tooltip').remove();
 
-            $('#testSendForm').submit(function (e) {
+            $('#testSendForm').off('submit').on('submit', function (e) {
                 e.preventDefault();
 
                 var email = $.trim($('#testSendEmail').val());
@@ -85,15 +85,6 @@ var itrsActions = function (md, emailProcessorBackend) {
                     }
                 });
             });
-
-
-
-
-            //console.log('HTML ======================================================');
-            //console.log(viewModel.exportHTML());
-            //console.log('===========================================================');
-            // todo this enable must be in the test mailing promise
-
         };
         var downloadCmd = {
             name:    'Download', // l10n happens in the template
@@ -137,6 +128,7 @@ var itrsActions = function (md, emailProcessorBackend) {
                 }
             });
         };
+
 
         viewModel.save = saveCmd;
         viewModel.saveExit = saveExitCmd;
