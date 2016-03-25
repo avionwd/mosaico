@@ -69,12 +69,12 @@ var itrsActions = function (md, emailProcessorBackend) {
                     type: 'POST',
                     dataType: 'json',
                     success: function (response) {
-                        console.log(response);
-                        if (response.status) {
-                            viewModel.notifier.success(response.message);
+                        if (response.status == 'success') {
+                            viewModel.notifier.success(response.data.message);
+                        } else if (response.status == 'error' && response.error && response.error.message) {
+                            viewModel.notifier.error(response.error.message);
                         } else {
-                            var message = response.message || viewModel.ut('template', 'Test send Error');
-                            viewModel.notifier.error(message);
+                            viewModel.notifier.error(viewModel.ut('template', 'Test send Error'));
                         }
                     },
                     error: function (response) {
@@ -113,11 +113,12 @@ var itrsActions = function (md, emailProcessorBackend) {
                 type: 'POST',
                 dataType: 'json',
                 success: function (response) {
-                    if (response.status) {
-                        viewModel.notifier.success(response.message);
+                    if (response.status == 'success') {
+                        viewModel.notifier.success(response.data.message);
+                    } else if (response.status == 'error' && response.error && response.error.message) {
+                        viewModel.notifier.error(response.error.message);
                     } else {
-                        var message = response.message || viewModel.ut('template', 'Template save Error');
-                        viewModel.notifier.error(message);
+                        viewModel.notifier.error(viewModel.ut('template', 'Template save Error'));
                     }
                 },
                 error: function (response) {
