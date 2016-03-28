@@ -34,9 +34,9 @@ var itrsActions = function (md, emailProcessorBackend) {
                 viewModel.metadata.key = mdkey;
             }
 
-            saveAction(saveExitCmd);
 
-            var backUrl = $('body').data('back-url');
+
+            var backUrl = saveAction(saveExitCmd);
             if (backUrl) global.document.location = backUrl;
         };
         var testCmd = {
@@ -104,6 +104,8 @@ var itrsActions = function (md, emailProcessorBackend) {
         };
 
         var saveAction = function (command) {
+            var url = '';
+
             $.ajax('/save', {
                 data: {
                     meta: viewModel.exportMetadata(),
@@ -115,6 +117,7 @@ var itrsActions = function (md, emailProcessorBackend) {
                 success: function (response) {
                     if (response.status == 'success') {
                         viewModel.notifier.success(response.data.message);
+                        url = response.data.url;
                     } else if (response.status == 'error' && response.error && response.error.message) {
                         viewModel.notifier.error(response.error.message);
                     } else {
@@ -128,6 +131,8 @@ var itrsActions = function (md, emailProcessorBackend) {
                     command.enabled(true);
                 }
             });
+
+            return url;
         };
 
 
