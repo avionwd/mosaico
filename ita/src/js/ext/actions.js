@@ -20,7 +20,7 @@ var itrsActions = function (md, emailProcessorBackend) {
                 viewModel.metadata.key = mdkey;
             }
 
-            saveAction(saveCmd);
+            saveAction(saveCmd, false);
         };
         var saveExitCmd = {
             name:    'Save and exit', // l10n happens in the template
@@ -36,8 +36,7 @@ var itrsActions = function (md, emailProcessorBackend) {
 
 
 
-            var backUrl = saveAction(saveExitCmd);
-            if (backUrl) global.document.location = backUrl;
+            saveAction(saveExitCmd, true);
         };
         var testCmd = {
             name:    'Test', // l10n happens in the template
@@ -103,9 +102,7 @@ var itrsActions = function (md, emailProcessorBackend) {
             downloadCmd.enabled(true);
         };
 
-        var saveAction = function (command) {
-            var url = '';
-
+        var saveAction = function (command, redirect) {
             $.ajax('/save', {
                 data: {
                     meta: viewModel.exportMetadata(),
@@ -117,7 +114,9 @@ var itrsActions = function (md, emailProcessorBackend) {
                 success: function (response) {
                     if (response.status == 'success') {
                         viewModel.notifier.success(response.data.message);
-                        url = response.data.url;
+                        if (redirect && response.data.url) {
+                            global.document.location = response.data.url;
+                        }
                     } else if (response.status == 'error' && response.error && response.error.message) {
                         viewModel.notifier.error(response.error.message);
                     } else {
@@ -131,8 +130,6 @@ var itrsActions = function (md, emailProcessorBackend) {
                     command.enabled(true);
                 }
             });
-
-            return url;
         };
 
 
