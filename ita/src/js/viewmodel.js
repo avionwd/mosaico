@@ -143,8 +143,8 @@ function initializeEditor(content, blockDefs, thumbPathConverter, galleryUrl) {
     contentListeners: ko.observable(0),
     
     logoPath: 'mosaico/dist/img/iterios32.png',
-    logoUrl: '.',
-    logoAlt: 'mosaico'
+    logoUrl: '//iterios.com',
+    logoAlt: 'Iterios'
   };
 
   // viewModel.content = content._instrument(ko, content, undefined, true);
