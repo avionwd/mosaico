@@ -35,17 +35,8 @@ var applyBindingOptions = function (options, ko) {
         console.log('Convert URL ', src);
 
         var imgProcessorBackend = options.imgProcessorBackend ? options.imgProcessorBackend : './upload';
-
-        console.log('=======================',imgProcessorBackend);
-
         var backEndMatch = imgProcessorBackend.match(/^(https?:\/\/[^\/]*\/).*$/);
         var srcMatch = src.match(/^(https?:\/\/[^\/]*\/).*$/);
-
-        console.log('backEndMatch: ', backEndMatch);
-        console.log('srcMatch: ', srcMatch);
-
-
-
 
         //if (backEndMatch === null || (srcMatch !== null && backEndMatch[1] == srcMatch[1])) {
         if (backEndMatch === null || srcMatch[1] == 'https://static.iterios.com/') {
