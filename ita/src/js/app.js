@@ -31,9 +31,6 @@ function _canonicalize(url) {
 var applyBindingOptions = function (options, ko) {
     // push "convertedUrl" method to the wysiwygSrc binding
     ko.bindingHandlers.wysiwygSrc.convertedUrl = function (src, method, width, height) {
-
-        console.log('Convert URL ', src);
-
         var imgProcessorBackend = options.imgProcessorBackend ? options.imgProcessorBackend : './upload';
         var backEndMatch = imgProcessorBackend.match(/^(https?:\/\/[^\/]*\/).*$/);
         var srcMatch = src.match(/^(https?:\/\/[^\/]*\/).*$/);
