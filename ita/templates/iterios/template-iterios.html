@@ -873,7 +873,7 @@
                                               <td align="left" style="padding-top: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                       </table>
@@ -904,7 +904,7 @@
                                           <td align="left" style="padding-top: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                   </table>
@@ -939,7 +939,7 @@
                                   style="background-color: #548dd4; font-size: 22px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; text-align: center;
               -ko-attr-align: @bigTitleStyle.align; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;
               -ko-font-size: @[bigTitleStyle.size]px; -ko-font-family: @bigTitleStyle.face; -ko-color: @bigTitleStyle.color; -ko-text-align: @bigTitleStyle.align">
-                                  <span data-ko-editable="text">[Campaign Subject]</span>
+                                  <span data-ko-editable="text">Тема письма</span>
                               </td>
                           </tr>
                       </table>
@@ -949,6 +949,57 @@
           </tr>
       </table>
       <!-- /TitleBlock -->
+
+    <!-- buttonBlock -->
+    <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+           style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"  data-ko-block="buttonBlock">
+      <tr>
+        <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
+            style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+          <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+          <div class="oldwebkit">
+            <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
+                   style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+              <tr>
+                <td valign="top" bgcolor="#ffffff" style="background-color: #ffffff;
+              -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor" align="center">
+
+                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
+                    <tr>
+                      <td width="100%" valign="middle" style="text-align:center; -ko-text-align: @bigButtonStyle.align;">
+                                              <span style="
+                                                    font-size: 22px;
+                                                    font-family: Arial, Helvetica, sans-serif;
+                                                    color: #3f3f3f;
+                                                    font-weight: normal;
+                                                    padding: 12px 14px;
+                                                    display: inline-block;
+                                                    background-color: #bfbfbf;
+                                                    border-radius: 4px;
+                                                    -ko-border-radius: @[bigButtonStyle.radius]px;
+                                                    -ko-attr-bgcolor: @bigButtonStyle.buttonColor;
+                                                    -ko-background-color: @bigButtonStyle.buttonColor;
+                                                    -ko-font-size: @[bigButtonStyle.size]px;
+                                                    -ko-font-family: @bigButtonStyle.face;
+                                                    -ko-color: @bigButtonStyle.color; ">
+                                                  <a data-ko-editable="buttonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @bigButtonStyle.color; -ko-attr-href: @buttonLink.url">
+                                                    <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
+                                                  </a>
+                                              </span>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+    </table>
+    <!-- /buttonBlock -->
 
       <!-- textBlock -->
       <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
@@ -965,8 +1016,8 @@
                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
               -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                   data-ko-editable="longText" class="long-text links-color">
-                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
-                                  <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
+                                  <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
                               </td>
                           </tr>
                           <tr data-ko-display="buttonVisible">
@@ -1081,7 +1132,7 @@
                                               <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
-                          Title
+                          Заголовок
                           </span>
                                               </td>
                                           </tr>
@@ -1089,7 +1140,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -1142,7 +1193,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -1150,7 +1201,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -1230,7 +1281,7 @@
                                           <tr data-ko-display="titleVisible">
                                               <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Заголовок
                           </span>
                                               </td>
                                           </tr>
@@ -1238,7 +1289,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -1291,7 +1342,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -1299,7 +1350,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="middleLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -1352,7 +1403,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -1360,7 +1411,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -1441,7 +1492,7 @@
                                               <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
-                          Title
+                          Заголовок
                           </span>
                                               </td>
                                           </tr>
@@ -1449,7 +1500,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -1507,7 +1558,7 @@
                                               <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
-                          Title
+                          Заголовок
                           </span>
                                               </td>
                                           </tr>
@@ -1515,7 +1566,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="middleLeftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -1573,7 +1624,7 @@
                                               <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
-                          Title
+                          Заголовок
                           </span>
                                               </td>
                                           </tr>
@@ -1581,7 +1632,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="middleRightLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -1636,7 +1687,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -1644,7 +1695,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -1724,7 +1775,7 @@
                                           <tr data-ko-display="titleVisible">
                                               <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Заголовок
                           </span>
                                               </td>
                                           </tr>
@@ -1732,7 +1783,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -1785,7 +1836,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -1793,7 +1844,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="middleLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -1846,7 +1897,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -1854,7 +1905,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -1934,7 +1985,7 @@
                                           <tr data-ko-display="titleVisible">
                                               <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Заголовок
                           </span>
                                               </td>
                                           </tr>
@@ -1942,7 +1993,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -1995,7 +2046,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -2003,7 +2054,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="middleLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -2056,7 +2107,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -2064,7 +2115,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -2144,7 +2195,7 @@
                                           <tr data-ko-display="titleVisible">
                                               <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
-                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Title
+                          <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">Заголовок
                           </span>
                                               </td>
                                           </tr>
@@ -2152,7 +2203,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -2205,7 +2256,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -2213,7 +2264,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="middleLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -2266,7 +2317,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -2274,7 +2325,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -2355,7 +2406,7 @@
                                               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                   data-ko-editable="leftLongText" class="long-text links-color">
-                                                  <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                  <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               </td>
                                           </tr>
                                           <tr data-ko-display="buttonVisible">
@@ -2398,7 +2449,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color"  data-ko-editable="middleTitleText">
-                         Title
+                         Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -2406,7 +2457,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="middleLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                               <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place.</p>
                                               <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                                           </td>
@@ -2461,7 +2512,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="rightLongText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -2551,7 +2602,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="titleText">
-                          Title
+                          Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -2559,7 +2610,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="longText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                              <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -2650,7 +2701,7 @@
                                   <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                 -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                 <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="text">
-               Section Title
+               Section Заголовок
                 </span>
                                   </td>
                               </tr>
@@ -2661,7 +2712,7 @@
                                   <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                 -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                       data-ko-editable="longText" class="long-text links-color">
-                                      <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                      <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
                                   </td>
                               </tr>
                               <tr data-ko-display="buttonVisible">
@@ -2705,57 +2756,6 @@
       </table>
       <!-- /singleArticleBlock -->
 
-      <!-- buttonBlock -->
-      <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-             style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"  data-ko-block="buttonBlock">
-          <tr>
-              <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-                  style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
-
-                  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
-                  <div class="oldwebkit">
-                      <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
-                             style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-                          <tr>
-                              <td valign="top" bgcolor="#ffffff" style="background-color: #ffffff;
-              -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor" align="center">
-
-                                  <table width="100%" cellpadding="0" border="0" align="left" cellspacing="0" class="mobile-full" style="padding-top: 4px">
-                                      <tr>
-                                          <td width="100%" valign="middle" style="text-align:center; -ko-text-align: @bigButtonStyle.align;">
-                                              <span style="
-                                                    font-size: 22px;
-                                                    font-family: Arial, Helvetica, sans-serif;
-                                                    color: #3f3f3f;
-                                                    font-weight: normal;
-                                                    padding: 12px 14px;
-                                                    display: inline-block;
-                                                    background-color: #bfbfbf;
-                                                    border-radius: 4px;
-                                                    -ko-border-radius: @[bigButtonStyle.radius]px;
-                                                    -ko-attr-bgcolor: @bigButtonStyle.buttonColor;
-                                                    -ko-background-color: @bigButtonStyle.buttonColor;
-                                                    -ko-font-size: @[bigButtonStyle.size]px;
-                                                    -ko-font-family: @bigButtonStyle.face;
-                                                    -ko-color: @bigButtonStyle.color; ">
-                                                  <a data-ko-editable="buttonLink.text" href="" style="text-decoration: none; color: #3f3f3f; font-weight: normal; -ko-color: @bigButtonStyle.color; -ko-attr-href: @buttonLink.url">
-                                                      <span data-bind="text: $root.ut('template', 'Details')">Подробнее</span>
-                                                  </a>
-                                              </span>
-                                          </td>
-                                      </tr>
-                                  </table>
-
-                              </td>
-                          </tr>
-                      </table>
-                  </div>
-                  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
-              </td>
-          </tr>
-      </table>
-      <!-- /buttonBlock -->
-
       <!-- sidebarLeftBlock  -->
       <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
              style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="sidebarLeftBlock">
@@ -2797,7 +2797,7 @@
                                                   <td align="left" style="padding: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[sidebarLongTextStyle.size]px; -ko-font-family: @sidebarLongTextStyle.face; -ko-color: @sidebarLongTextStyle.color"
                                                       data-ko-editable="sidebarLongText" class="long-text sidebar-links-color">
-                                                      <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                                      <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                                   </td>
                                               </tr>
                                           </table>
@@ -2812,7 +2812,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="titleText">
-                          Title
+                          Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -2820,7 +2820,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="longText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                              <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -2880,7 +2880,7 @@
                                           <td align="left" style="padding: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[sidebarLongTextStyle.size]px; -ko-font-family: @sidebarLongTextStyle.face; -ko-color: @sidebarLongTextStyle.color"
                                               data-ko-editable="sidebarLongText" class="long-text sidebar-links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                   </table>
@@ -2941,7 +2941,7 @@
                                                   <td align="left" style="padding: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[sidebarLongTextStyle.size]px; -ko-font-family: @sidebarLongTextStyle.face; -ko-color: @sidebarLongTextStyle.color"
                                                       data-ko-editable="sidebarLongText" class="long-text sidebar-links-color">
-                                                      <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                                      <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                                   </td>
                                               </tr>
                                           </table>
@@ -2956,7 +2956,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="titleText">
-                          Title
+                          Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -2964,7 +2964,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="longText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                              <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -3024,7 +3024,7 @@
                                           <td align="left" style="padding: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[sidebarLongTextStyle.size]px; -ko-font-family: @sidebarLongTextStyle.face; -ko-color: @sidebarLongTextStyle.color"
                                               data-ko-editable="sidebarLongText" class="long-text sidebar-links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                   </table>
@@ -3084,8 +3084,8 @@
                                                   <td align="left" style="padding: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[sidebarLongTextStyle.size]px; -ko-font-family: @sidebarLongTextStyle.face; -ko-color: @sidebarLongTextStyle.color"
                                                       data-ko-editable="sidebarLongText" class="long-text sidebar-links-color">
-                                                      <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                                      <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                                      <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
+                                                      <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                                   </td>
                                               </tr>
                                           </table>
@@ -3100,7 +3100,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="titleText">
-                          Title
+                          Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -3108,7 +3108,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="longText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                              <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -3165,7 +3165,7 @@
                                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
-                          Title
+                          Заголовок
                           </span>
                                                           </td>
                                                       </tr>
@@ -3173,7 +3173,7 @@
                                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                               data-ko-editable="leftLongText" class="long-text links-color">
-                                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                                           </td>
                                                       </tr>
                                                       <tr data-ko-display="buttonVisible">
@@ -3226,7 +3226,7 @@
                                                       <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
+                         Заголовок
                           </span>
                                                       </td>
                                                   </tr>
@@ -3234,7 +3234,7 @@
                                                       <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                           data-ko-editable="rightLongText" class="long-text links-color">
-                                                          <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                                          <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                                       </td>
                                                   </tr>
                                                   <tr data-ko-display="buttonVisible">
@@ -3302,8 +3302,8 @@
                                           <td align="left" style="padding: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[sidebarLongTextStyle.size]px; -ko-font-family: @sidebarLongTextStyle.face; -ko-color: @sidebarLongTextStyle.color"
                                               data-ko-editable="sidebarLongText" class="long-text sidebar-links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                              <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                   </table>
@@ -3363,8 +3363,8 @@
                                                   <td align="left" style="padding: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[sidebarLongTextStyle.size]px; -ko-font-family: @sidebarLongTextStyle.face; -ko-color: @sidebarLongTextStyle.color"
                                                       data-ko-editable="sidebarLongText" class="long-text sidebar-links-color">
-                                                      <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                                      <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                                      <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
+                                                      <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                                   </td>
                                               </tr>
                                           </table>
@@ -3379,7 +3379,7 @@
                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="titleText">
-                          Title
+                          Заголовок
                           </span>
                                           </td>
                                       </tr>
@@ -3387,7 +3387,7 @@
                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                               data-ko-editable="longText" class="long-text links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                              <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
                                           </td>
                                       </tr>
                                       <tr data-ko-display="buttonVisible">
@@ -3444,7 +3444,7 @@
                                                           <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="leftTitleText">
-                          Title
+                          Заголовок
                           </span>
                                                           </td>
                                                       </tr>
@@ -3452,7 +3452,7 @@
                                                           <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                               data-ko-editable="leftLongText" class="long-text links-color">
-                                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. </p>
+                                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                                           </td>
                                                       </tr>
                                                       <tr data-ko-display="buttonVisible">
@@ -3505,7 +3505,7 @@
                                                       <td style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[titleTextStyle.size]px; -ko-font-family: @titleTextStyle.face; -ko-color: @titleTextStyle.color">
                           <span style="color: #3f3f3f; -ko-color: @titleTextStyle.color" data-ko-editable="rightTitleText">
-                         Title
+                         Заголовок
                           </span>
                                                       </td>
                                                   </tr>
@@ -3513,7 +3513,7 @@
                                                       <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                                                           data-ko-editable="rightLongText" class="long-text links-color">
-                                                          <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                                          <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                                       </td>
                                                   </tr>
                                                   <tr data-ko-display="buttonVisible">
@@ -3581,8 +3581,8 @@
                                           <td align="left" style="padding: 9px; text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
                           -ko-font-size: @[sidebarLongTextStyle.size]px; -ko-font-family: @sidebarLongTextStyle.face; -ko-color: @sidebarLongTextStyle.color"
                                               data-ko-editable="sidebarLongText" class="long-text sidebar-links-color">
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                              <p>Far far away, behind the word mountains, far from the countries <a href="">Vokalia and Consonantia</a>, there live the blind texts.</p>
+                                              <p>Возможности редактора позволяют выделять текст <strong>жирным</strong>, <em>курсивом</em>, <a href="#">подчеркиванием</a>. Есть множество настроек в левой панели. Пожалуйста, используйте меню БЛОКИ, СОДЕРЖИМОЕ и СТИЛЬ. Эти меню помогут вам привести текст вашей рассылки к желаемому виду.</p>
+                                              <p>Это ДЕМО текст, который необходимо заменить на текст своей рассылки. Мы добавили его, чтобы вы увидели, как выглядит ваша рассылка.</p>
                                           </td>
                                       </tr>
                                   </table>
