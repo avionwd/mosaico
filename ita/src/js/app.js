@@ -61,6 +61,12 @@ var applyBindingOptions = function (options, ko) {
 
 var start = function (options, templateFile, templateMetadata, jsorjson, customExtensions) {
 
+    var maxUploadFileSize = 1024 * 1024;
+    if (options && options.fileuploadConfig && options.fileuploadConfig.maxFileSize)
+        maxUploadFileSize = options.fileuploadConfig.maxFileSize;
+    var maxUploadFileSizeString = '' + (maxUploadFileSize / 1024).toFixed(2) + ' Kb';
+    if (maxUploadFileSize >= (1024 * 1024))
+        maxUploadFileSizeString = '' + (maxUploadFileSize / 1024 / 1024).toFixed(2) + ' Mb';
 
     templateLoader.fixPageEvents();
 
@@ -71,10 +77,10 @@ var start = function (options, templateFile, templateMetadata, jsorjson, customE
                 uploadedBytes:       vm.t('Uploaded bytes exceed file size'),
                 maxNumberOfFiles:    vm.t('Maximum number of files exceeded'),
                 acceptFileTypes:     vm.t('File type not allowed'),
-                maxFileSize:         vm.t('File is too large'),
+                maxFileSize:         vm.t('File is too large. Max file size is __size__', {size: maxUploadFileSizeString}),
                 minFileSize:         vm.t('File is too small'),
                 post_max_size:       vm.t('The uploaded file exceeds the post_max_size directive in php.ini'),
-                max_file_size:       vm.t('File is too big'),
+                max_file_size:       vm.t('File is too big. Max file size is __size__', {size: maxUploadFileSizeString}),
                 min_file_size:       vm.t('File is too small'),
                 accept_file_types:   vm.t('Filetype not allowed'),
                 max_number_of_files: vm.t('Maximum number of files exceeded'),
@@ -85,7 +91,8 @@ var start = function (options, templateFile, templateMetadata, jsorjson, customE
                 abort:               vm.t('File upload aborted'),
                 image_resize:        vm.t('Failed to resize image'),
                 generic:             vm.t('Unexpected upload error')
-            }
+            },
+            maxFileSize: maxUploadFileSize
         };
         // fileUpload options.
         if (options && options.fileuploadConfig)
