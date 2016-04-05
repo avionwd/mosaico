@@ -22,6 +22,36 @@ var itrsActions = function (md, emailProcessorBackend) {
 
             saveAction(saveCmd, false);
         };
+        var saveAsCmd = {
+            name:    'Save As Template', // l10n happens in the template
+            enabled: ko.observable(true)
+        };
+        saveAsCmd.execute = function () {
+            saveAsCmd.enabled(false);
+            viewModel.metadata.changed = Date.now();
+            if (typeof viewModel.metadata.key == 'undefined') {
+                console.warn("Unable to find ket in metadata object...", viewModel.metadata);
+                viewModel.metadata.key = mdkey;
+            }
+            $.ajax('/saveAs', {
+                data: {
+                    meta: viewModel.exportMetadata(),
+                    json: viewModel.exportJSON(),
+                    html: viewModel.exportHTML()
+                },
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    viewModel.notifier.success(response.message);
+                },
+                error: function (response) {
+                    viewModel.notifier.error(viewModel.ut('template', 'Template save Error'));
+                },
+                complete: function() {
+                    saveAsCmd.enabled(true);
+                }
+            });
+        };
         var saveExitCmd = {
             name:    'Save and exit', // l10n happens in the template
             enabled: ko.observable(true)
@@ -132,11 +162,17 @@ var itrsActions = function (md, emailProcessorBackend) {
             });
         };
 
+        console.log(global.document.location);
 
         viewModel.save = saveCmd;
         viewModel.saveExit = saveExitCmd;
         viewModel.test = testCmd;
-        //viewModel.download = downloadCmd;
+
+        // save as template mode
+        if (global.document.location.pathname == '/test') {
+            viewModel.saveAs = saveAsCmd;
+        }
+
     }.bind(undefined, md.key, md.name);
 
     return actionsPlugin;

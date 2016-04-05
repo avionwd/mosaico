@@ -49,6 +49,10 @@
     </span>
 
         <div class="rightButtons">
+            <!-- ko if: typeof $root.saveAs !== 'undefined' -->
+            <a title="Save As template" href="javascript:void(0)"
+               data-bind="attr: { title: $root.t('Save As template') }, click: $root.saveAs.execute, clickBubble: false, button: { disabled: !$root.saveAs.enabled(), icons: { primary: 'fa fa-fw fa-folder-open-o' }, label: $root.t($root.saveAs.name), text: true }">SAVE AS TEMPLATE</a>
+            <!-- /ko -->
             <!-- ko if: typeof $root.save !== 'undefined' -->
             <a title="Save template" href="javascript:void(0)"
                data-bind="attr: { title: $root.t('Save template') }, click: $root.save.execute, clickBubble: false, button: { disabled: !$root.save.enabled(), icons: { primary: 'fa fa-fw fa-save' }, label: $root.t($root.save.name), text: true }">SALVA</a>
