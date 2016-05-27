@@ -43,6 +43,7 @@
       sponsor { label: Sponsor; properties: visible=true src url alt; category: hidden }
       titleText {label:Title Text;category: hidden;}
       gutterVisible { label: Show Gutter; extend: visible }
+      logoVisible { label: Show Logo; extend: visible }
       socialIconType { label: Icon Version;widget: select; options:bw=Black and White|colors=Colors; }
 
       preheaderLinkOption {
@@ -60,6 +61,7 @@
       blocks { label: Blocks; properties: blocks[]; }
       link { label: Link; properties: text url }
       image { label: Image; properties: src url alt }
+      logo { label: Logo; properties: src alt }
       backgroundColor { label: Background Color; extend: color }
       buttonLink { label: Button; extend: link }
 
@@ -194,7 +196,7 @@
         theme: frameTheme
       }
 
-      preheaderBlock { label: Preheader Block; theme: frameTheme}
+      preheaderBlock { label: Preheader Block;;properties:logoVisible=true;variant:logoVisible; theme: frameTheme}
 
       sideArticleBlock imagePos {label:Image position;widget:select; options: left=Left|right=Right; }
       sideArticleBlock imageWidth { label: Image Size; widget: select; options: 120=Small|166=Medium|258=Big; }
@@ -621,7 +623,11 @@
                         <td width="100%" valign="top" align="left" style="font-weight: normal; text-align:left; font-size: 13px;
                           font-family: Arial, Helvetica, sans-serif; color: #ffffff;
                           ">
-
+                          <div data-ko-display="logoVisible">
+                            <img src="https://static.iterios.com/development/company/1/logo.png"
+                                 alt=""
+                                 style="-ko-attr-src: @logo.src; -ko-attr-alt: @logo.alt; max-width=100%" />
+                          </div>
                         </td>
                       </tr>
                     </table>
